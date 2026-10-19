@@ -1,7 +1,0 @@
-{
-  "api_base": "https://api.deepseek.com",
-  "dark_mode": false,
-  "model": "deepseek-chat",
-  "temperature": 0.2,
-  "version": 1
-}
