@@ -498,5 +498,26 @@ std::string NormalizeMathText(const std::string& text) {
     if (!foundMath && LooksLikeLatex(output)) {
         output = FormatMath(output);
     }
-    return output;
+
+    // Keep fractions machine-typesettable and human-readable: the UI draws
+    // "a/b" as a stacked fraction, while division signs and full-width slashes
+    // would otherwise stay as inline glyphs.
+    std::string normalized;
+    normalized.reserve(output.size());
+    for (size_t i = 0; i < output.size();) {
+        if (output.compare(i, 2, "\xC3\xB7") == 0) {  // U+00F7 ÷
+            normalized.push_back('/');
+            i += 2;
+        } else if (output.compare(i, 3, "\xEF\xBC\x8F") == 0) {  // U+FF0F ／
+            normalized.push_back('/');
+            i += 3;
+        } else if (output.compare(i, 3, "\xE2\x88\x92") == 0) {  // U+2212 −
+            normalized.push_back('-');
+            i += 3;
+        } else {
+            normalized.push_back(output[i]);
+            ++i;
+        }
+    }
+    return normalized;
 }

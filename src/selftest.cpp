@@ -1,10 +1,13 @@
 #include "ai.h"
+#include "dedup.h"
 #include "docx.h"
 #include "image_data.h"
 #include "json.h"
+#include "math_expr.h"
 #include "math_text.h"
 #include "seed.h"
 #include "store.h"
+#include "text_file.h"
 #include "util.h"
 
 #ifndef NOMINMAX
@@ -15,6 +18,7 @@
 #include <objidl.h>
 #include <gdiplus.h>
 
+#include <cmath>
 #include <filesystem>
 #include <iostream>
 #include <string>
@@ -227,6 +231,43 @@ int main() {
     Check(keyReload.Config().apiKey == "sk-selftest-secret",
           "DPAPI-protected API key decrypts for this Windows user");
     Check(keyReload.Config().darkMode, "Dark mode preference persists in settings");
+
+    mathexpr::Expression expression;
+    std::string expressionError;
+    Check(expression.Parse("x^2-4", &expressionError), "Function expression parses");
+    Check(std::abs(expression.Evaluate(3.0) - 5.0) < 1e-9, "Function expression evaluates");
+    std::vector<mathexpr::RootInfo> roots =
+        mathexpr::FindRoots(expression, -10.0, 10.0);
+    Check(roots.size() == 2 && std::abs(roots[0].x + 2.0) < 1e-6 &&
+              std::abs(roots[1].x - 2.0) < 1e-6,
+          "Function zeros are detected");
+
+    Question duplicateA;
+    duplicateA.stem = "计算：cos 7.5°cos 52.5°-sin 7.5°sin 52.5° 等于（ ）";
+    Question duplicateB;
+    duplicateB.stem = "计算: cos7.5°*cos52.5°-sin7.5°*sin52.5°等于()";
+    Check(CanonicalQuestionKey(duplicateA.stem) == CanonicalQuestionKey(duplicateB.stem),
+          "Missing multiplication signs are normalized for dedup");
+    std::vector<Question> duplicateList{duplicateA, duplicateB};
+    Check(FindDuplicateGroups(duplicateList).size() == 1, "Duplicate question groups found");
+    Check(InsertImplicitMultiplication("7.5°cos 52.5°").find("°·cos") != std::string::npos,
+          "Implicit multiplication can be made explicit");
+    Check(NormalizeMathText("x²÷4").find("x²/4") != std::string::npos,
+          "Division signs normalize to a typesettable slash");
+
+    const std::filesystem::path textPath =
+        std::filesystem::current_path() / "build" / "selftest-text.txt";
+    Check(util::WriteFileBytes(textPath, "第一题：集合 A={1,2}，求 A∩A。\n第二题：sin30°=______。"),
+          "TXT import fixture writes");
+    TextFileResult textFile = ExtractTextFile(textPath);
+    Check(textFile.ok && textFile.text.find("集合") != std::string::npos,
+          "TXT import extracts UTF-8 text");
+    std::filesystem::remove(textPath);
+    const std::filesystem::path sampleDoc =
+        std::filesystem::current_path() / "docs" / "示例试卷.docx";
+    TextFileResult docxFile = ExtractTextFile(sampleDoc);
+    Check(docxFile.ok && docxFile.text.find("数学") != std::string::npos,
+          "DOCX import extracts WordprocessingML text");
 
     std::cout << "----------------------------------------\n";
     if (failures == 0) {

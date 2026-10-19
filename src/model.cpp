@@ -81,6 +81,8 @@ jsonx::Value Question::ToJson() const {
     value.Set("id", id);
     value.Set("difficulty", DifficultyKey(difficulty));
     value.Set("type", TypeKey(type));
+    value.Set("grade", GradeKey(grade));
+    value.Set("favorite", favorite);
     value.Set("stem", stem);
     value.Set("options", StringArray(options));
     value.Set("answer", answer);
@@ -111,6 +113,13 @@ Question Question::FromJson(const jsonx::Value& value) {
     question.analysis = value["analysis"].AsString();
     question.formulas = ReadStringArray(value["formulas"]);
     question.concepts = ReadStringArray(value["concepts"]);
+    question.favorite = value["favorite"].AsBool(false);
+    Grade parsedGrade = Grade::Unknown;
+    if (ParseGrade(value["grade"].AsString(), parsedGrade)) {
+        question.grade = parsedGrade;
+    } else {
+        question.grade = InferGrade(question);
+    }
     question.tagged = question.HasAnyTag();
     question.created = value["created"].AsString();
     if (question.created.empty()) {
@@ -217,6 +226,12 @@ bool QuestionFilter::Matches(const Question& question) const {
     if (typeIndex < 0 || typeIndex > 2 || !types[typeIndex]) {
         return false;
     }
+    if (grade >= 0 && static_cast<int>(question.grade) != grade) {
+        return false;
+    }
+    if (onlyFavorites && !question.favorite) {
+        return false;
+    }
     if (onlyUntagged && question.tagged) {
         return false;
     }
@@ -251,12 +266,15 @@ bool QuestionFilter::Matches(const Question& question) const {
 
 bool QuestionFilter::IsDefault() const {
     return difficulties[0] && difficulties[1] && difficulties[2] && types[0] && types[1] &&
-           types[2] && !onlyUntagged && tags.empty() && search.empty();
+           types[2] && grade < 0 && !onlyFavorites && !onlyUntagged && tags.empty() &&
+           search.empty();
 }
 
 void QuestionFilter::Reset() {
     difficulties = {{true, true, true}};
     types = {{true, true, true}};
+    grade = -1;
+    onlyFavorites = false;
     onlyUntagged = false;
     tags.clear();
     matchAllTags = false;
@@ -267,6 +285,8 @@ int QuestionFilter::ActiveConditionCount() const {
     int count = 0;
     for (bool value : difficulties) if (value) ++count;
     for (bool value : types) if (value) ++count;
+    if (grade >= 0) ++count;
+    if (onlyFavorites) ++count;
     if (onlyUntagged) ++count;
     count += static_cast<int>(tags.size());
     if (!search.empty()) ++count;
@@ -300,6 +320,16 @@ const wchar_t* TypeName(QuestionType type) {
     return L"选择题";
 }
 
+const wchar_t* GradeName(Grade grade) {
+    switch (grade) {
+        case Grade::High1: return L"高一";
+        case Grade::High2: return L"高二";
+        case Grade::High3: return L"高三";
+        case Grade::Unknown: return L"未分级";
+    }
+    return L"未分级";
+}
+
 std::string DifficultyKey(Difficulty difficulty) {
     switch (difficulty) {
         case Difficulty::A: return "A";
@@ -316,6 +346,56 @@ std::string TypeKey(QuestionType type) {
         case QuestionType::Solution: return "solution";
     }
     return "choice";
+}
+
+std::string GradeKey(Grade grade) {
+    switch (grade) {
+        case Grade::High1: return "g1";
+        case Grade::High2: return "g2";
+        case Grade::High3: return "g3";
+        case Grade::Unknown: return "";
+    }
+    return "";
+}
+
+bool ParseGrade(const std::string& text, Grade& grade) {
+    std::string key = util::ToLowerAscii(util::Trim(text));
+    if (key.empty() || key == "unknown" || key == "none" || key == "未分级") {
+        grade = Grade::Unknown;
+        return !key.empty();
+    }
+    if (key == "g1" || key == "高一" || key == "high1" || key == "grade1") {
+        grade = Grade::High1;
+        return true;
+    }
+    if (key == "g2" || key == "高二" || key == "high2" || key == "grade2") {
+        grade = Grade::High2;
+        return true;
+    }
+    if (key == "g3" || key == "高三" || key == "high3" || key == "grade3") {
+        grade = Grade::High3;
+        return true;
+    }
+    return false;
+}
+
+Grade InferGrade(const Question& question) {
+    std::string haystack = question.stem;
+    for (const auto& tag : question.formulas) haystack += "\n" + tag;
+    for (const auto& tag : question.concepts) haystack += "\n" + tag;
+    auto has = [&](const char* keyword) { return haystack.find(keyword) != std::string::npos; };
+
+    const char* high3[] = {"导数", "极值", "最值", "圆锥曲线", "椭圆", "双曲线", "抛物线",
+                           "离心率", "概率", "随机变量", "统计", "计数原理", "排列", "组合",
+                           "二项式", "复数", "立体几何", "空间向量", "外接球", "表面积", "体积"};
+    const char* high2[] = {"数列", "等差", "等比", "不等式", "直线", "圆的方程", "解析几何",
+                           "正弦定理", "余弦定理", "解三角形", "平面向量", "线性规划", "空间直角坐标"};
+    const char* high1[] = {"集合", "函数", "指数", "对数", "幂函数", "三角函数", "任意角",
+                           "同角", "诱导公式", "二次函数", "不等式性质"};
+    for (const char* keyword : high3) if (has(keyword)) return Grade::High3;
+    for (const char* keyword : high2) if (has(keyword)) return Grade::High2;
+    for (const char* keyword : high1) if (has(keyword)) return Grade::High1;
+    return Grade::Unknown;
 }
 
 bool ParseDifficulty(const std::string& text, Difficulty& difficulty) {

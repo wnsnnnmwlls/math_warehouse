@@ -1,5 +1,6 @@
 #pragma once
 
+#include "math_expr.h"
 #include "model.h"
 #include "store.h"
 #include "ui.h"
@@ -7,6 +8,7 @@
 #include <windows.h>
 
 #include <filesystem>
+#include <memory>
 #include <set>
 #include <string>
 #include <thread>
@@ -28,7 +30,7 @@ public:
     LRESULT HandleMessage(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 private:
-    enum class Page { Bank, Tags, Ai, Paper };
+    enum class Page { Bank, Tags, Ai, Exam, Tools, Paper };
 
     enum ControlId {
         ID_SEARCH = 1001,
@@ -38,6 +40,40 @@ private:
         ID_PAPER_TITLE = 1020,
         ID_PAPER_MINUTES = 1021,
         ID_PAPER_NOTES = 1022,
+        ID_FUNCTION_INPUT = 1030,
+        ID_GEOMETRY_INPUT = 1031,
+        ID_EXAM_CHAT = 1040,
+        ID_EXAM_ANSWER = 1041,
+    };
+
+    struct ExamMessage {
+        bool user = false;
+        std::wstring text;
+    };
+
+    struct GeometryPoint {
+        std::string id;
+        std::string label;
+        double x = 0.5;
+        double y = 0.5;
+    };
+    struct GeometrySegment {
+        std::string a;
+        std::string b;
+    };
+    struct GeometryCircle {
+        double x = 0.5;
+        double y = 0.5;
+        double r = 0.2;
+    };
+    struct GeometrySpec {
+        bool ok = false;
+        std::string kind = "plane";
+        std::string title;
+        std::vector<GeometryPoint> points;
+        std::vector<GeometrySegment> segments;
+        std::vector<GeometryCircle> circles;
+        std::string note;
     };
 
     struct HitTarget {
@@ -87,6 +123,10 @@ private:
     HWND paperTitleEdit_ = nullptr;
     HWND paperMinutesEdit_ = nullptr;
     HWND paperNotesEdit_ = nullptr;
+    HWND functionEdit_ = nullptr;
+    HWND geometryEdit_ = nullptr;
+    HWND examChatEdit_ = nullptr;
+    HWND examAnswerEdit_ = nullptr;
 
     ui::Rect searchFieldRect_{};
     ui::Rect searchEditRect_{};
@@ -96,6 +136,10 @@ private:
     ui::Rect paperTitleFieldRect_{};
     ui::Rect paperMinutesFieldRect_{};
     ui::Rect paperNotesFieldRect_{};
+    ui::Rect functionFieldRect_{};
+    ui::Rect geometryFieldRect_{};
+    ui::Rect examChatFieldRect_{};
+    ui::Rect examAnswerFieldRect_{};
 
     std::vector<HitTarget> hits_;
     std::wstring hoverKey_;
@@ -133,7 +177,51 @@ private:
     std::thread imageThread_;
 
     bool apiKeyVisible_ = false;
+    bool modelMenuOpen_ = false;
     bool initialFieldsLoaded_ = false;
+    std::unique_ptr<Gdiplus::Bitmap> backBuffer_;
+    HDC backDc_ = nullptr;
+    HBITMAP backBitmap_ = nullptr;
+    HGDIOBJ backOldBitmap_ = nullptr;
+    void* backBits_ = nullptr;
+    int backBufferWidth_ = 0;
+    int backBufferHeight_ = 0;
+
+    std::vector<ExamMessage> examMessages_;
+    std::wstring examStatus_;
+    bool examChatBusy_ = false;
+    bool examGenerating_ = false;
+    std::thread examThread_;
+    std::wstring examGeneratedTitle_;
+    int examGeneratedMinutes_ = 30;
+    std::vector<Question> examGenerated_;
+    bool examActive_ = false;
+    bool examSubmitted_ = false;
+    std::wstring examTitle_;
+    int examMinutes_ = 30;
+    int examRemainingSeconds_ = 0;
+    int examIndex_ = 0;
+    int examReviewIndex_ = 0;
+    int examScore_ = 0;
+    int examTotalPoints_ = 0;
+    int examCorrect_ = 0;
+    std::vector<int> examChoices_;
+    std::vector<std::string> examAnswers_;
+    std::vector<Question> examQuestions_;
+
+    int toolsTab_ = 0;  // 0 functions, 1 geometry
+    std::wstring functionSource_ = L"sin(x)";
+    mathexpr::Expression functionExpression_;
+    std::vector<mathexpr::RootInfo> functionRoots_;
+    std::wstring functionError_;
+    std::wstring functionAiText_;
+    bool functionAiRunning_ = false;
+    std::wstring geometryPrompt_;
+    GeometrySpec geometrySpec_;
+    std::wstring geometryAiText_;
+    std::wstring geometryError_;
+    bool geometryAiRunning_ = false;
+    std::thread toolThread_;
 
     bool paperFieldsReady_ = false;
     bool includeAnswers_ = true;
@@ -162,6 +250,15 @@ private:
     void PaintBank(ui::Canvas& canvas, float width, float height);
     void PaintTags(ui::Canvas& canvas, float width, float height);
     void PaintAi(ui::Canvas& canvas, float width, float height);
+    void PaintExam(ui::Canvas& canvas, float width, float height);
+    void PaintExamSetup(ui::Canvas& canvas, float width, float height);
+    void PaintExamRunner(ui::Canvas& canvas, float width, float height);
+    void PaintExamResult(ui::Canvas& canvas, float width, float height);
+    void PaintTools(ui::Canvas& canvas, float width, float height);
+    void PaintFunctionTools(ui::Canvas& canvas, float width, float height);
+    void PaintGeometryTools(ui::Canvas& canvas, float width, float height);
+    void DrawFunctionPlot(ui::Canvas& canvas, const ui::Rect& rect);
+    void DrawGeometrySketch(ui::Canvas& canvas, const ui::Rect& rect);
     void PaintPaper(ui::Canvas& canvas, float width, float height);
     void PaintToast(ui::Canvas& canvas, float width, float height);
 
@@ -213,6 +310,18 @@ private:
     void StartAiTagging();
     void StartImageQuestionImport();
     void HandleImageFinished(WPARAM wParam, LPARAM lParam);
+    void SendExamMessage();
+    void GenerateExamPaper();
+    void StartExam();
+    void SaveCurrentExamAnswer();
+    void LoadExamAnswerToEdit();
+    void SubmitExam();
+    void ResetExam();
+    void HandleExamFinished(WPARAM wParam, LPARAM lParam);
+    void ParseFunction();
+    void StartFunctionExplanation();
+    void GenerateGeometrySketch();
+    void HandleToolFinished(WPARAM wParam, LPARAM lParam);
     void StartConnectionTest();
     void SaveAiSettings(bool notify);
     void OnProviderPreset(const std::string& provider);
@@ -223,6 +332,7 @@ private:
 
     void GeneratePaper();
     void OpenPath(const std::filesystem::path& path);
+    void OpenMathKeyboard(HWND target);
     void OpenContainingFolder(const std::filesystem::path& path);
 
     void ShowToast(const std::wstring& text, bool error = false);

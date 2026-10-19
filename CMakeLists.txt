@@ -20,6 +20,9 @@ set(CORE_SOURCES
     src/docx.cpp
     src/image_data.cpp
     src/math_text.cpp
+    src/math_expr.cpp
+    src/text_file.cpp
+    src/dedup.cpp
 )
 
 add_executable(MathPaperStudio WIN32
@@ -28,6 +31,10 @@ add_executable(MathPaperStudio WIN32
     src/app.h
     src/editor.cpp
     src/editor.h
+    src/math_draw.cpp
+    src/math_draw.h
+    src/keyboard.cpp
+    src/keyboard.h
     src/ui.cpp
     src/ui.h
     src/image_data.h

@@ -9,11 +9,14 @@
 
 enum class Difficulty { A = 0, B = 1, C = 2 };
 enum class QuestionType { Choice = 0, Fill = 1, Solution = 2 };
+enum class Grade { Unknown = 0, High1 = 1, High2 = 2, High3 = 3 };
 
 struct Question {
     std::string id;
     Difficulty difficulty = Difficulty::B;
     QuestionType type = QuestionType::Choice;
+    Grade grade = Grade::Unknown;
+    bool favorite = false;
     std::string stem;
     std::vector<std::string> options;
     std::string answer;
@@ -55,6 +58,8 @@ struct Settings {
 struct QuestionFilter {
     std::array<bool, 3> difficulties{{true, true, true}};
     std::array<bool, 3> types{{true, true, true}};
+    int grade = -1;  // -1 all, otherwise Grade enum value
+    bool onlyFavorites = false;
     bool onlyUntagged = false;
     std::set<std::string> tags;
     bool matchAllTags = false;
@@ -69,10 +74,14 @@ struct QuestionFilter {
 const wchar_t* DifficultyName(Difficulty difficulty);
 const wchar_t* DifficultyHint(Difficulty difficulty);
 const wchar_t* TypeName(QuestionType type);
+const wchar_t* GradeName(Grade grade);
 std::string DifficultyKey(Difficulty difficulty);
 std::string TypeKey(QuestionType type);
+std::string GradeKey(Grade grade);
 bool ParseDifficulty(const std::string& text, Difficulty& difficulty);
 bool ParseQuestionType(const std::string& text, QuestionType& type);
+bool ParseGrade(const std::string& text, Grade& grade);
+Grade InferGrade(const Question& question);
 int PointsForType(QuestionType type);
 
 std::string TagKey(const std::string& tag);

@@ -467,6 +467,7 @@ std::string BuildImagePrompt(const TagLibrary& library) {
               "      \"options\": [\"选项A内容\", \"选项B内容\"],\n"
               "      \"type\": \"choice\",\n"
               "      \"difficulty\": \"B\",\n"
+              "      \"grade\": \"高一\",\n"
               "      \"answer\": \"最终答案；多小问分别写 (1) (2)\",\n"
               "      \"analysis\": \"关键推导步骤，不能为空\",\n"
               "      \"formulas\": [\"公式名\"],\n"
@@ -485,17 +486,18 @@ std::string BuildImagePrompt(const TagLibrary& library) {
     prompt << "4. type 只能是 choice（有选项的选择题）、fill（填空题）或 solution（解答题）。"
               "若无法判断，带选项时用 choice，否则用 solution。\n";
     prompt << "5. difficulty 只能是 A（基础）、B（提升）、C（挑战），不确定时填 B。\n";
-    prompt << "6. formulas 写具体公式、定理或运算名称，最多 4 个；concepts 写知识概念，最多 5 个。"
+    prompt << "6. grade 只能是 高一、高二、高三 之一，按题目主要考查内容归级；不确定时填 高一。\n";
+    prompt << "7. formulas 写具体公式、定理或运算名称，最多 4 个；concepts 写知识概念，最多 5 个。"
               "每个标签不超过 16 个汉字；优先复用已有标签。\n";
-    prompt << "7. 所有数学表达必须使用人类可读的 Unicode 纯文本，禁止输出 LaTeX 或 Markdown 公式："
+    prompt << "8. 所有数学表达必须使用人类可读的 Unicode 纯文本，禁止输出 LaTeX 或 Markdown 公式："
               "不要出现 $、\\(…\\)、\\frac、\\sqrt、\\left、\\alpha、^、_ 等命令。分数写成"
-              "“分子/分母”（复杂分子或分母加括号），根号写成“√”，希腊字母直接写 α、β、π，"
-              "上下标使用 ²、ₙ 等 Unicode 字符。\n";
+              "“分子/分母”（复杂分子或分母加括号），程序会把它排版成上下分式；不要用 ÷ 或 ／。"
+              "根号写成“√”，希腊字母直接写 α、β、π，上下标使用 ²、ₙ 等 Unicode 字符。\n";
     prompt << "   例如：\\cos\\left(\\alpha+\\frac{\\pi}{4}\\right)=\\frac{\\sqrt{2}}{2} "
               "必须写成 cos(α+π/4)=√2/2；\n";
     prompt << "   \\frac{\\cos 2\\alpha}{\\sin\\alpha+\\cos\\alpha} 必须写成 "
               "(cos 2α)/(sin α+cos α)。\n";
-    prompt << "8. 如果图片完全无法辨认，返回 {\"error\":\"无法识别图片中的题目\"}。如果只能识别"
+    prompt << "9. 如果图片完全无法辨认，返回 {\"error\":\"无法识别图片中的题目\"}。如果只能识别"
               "部分题目，不要编造缺失题目，只返回能够完整识别并求解的题目。\n\n";
     if (!library.formulas.empty() || !library.concepts.empty()) {
         prompt << "已有公式标签：" << util::Join(library.formulas, "、") << "\n";
@@ -512,11 +514,13 @@ std::string BuildAiPrompt(const Question& question, const TagLibrary& library) {
     prompt << "你是一名资深高中数学教研员。请分析下面这道高中数学题，提取它考查的公式和知识点。\n\n";
     prompt << "输出要求：\n";
     prompt << "1. 只输出一个合法的 JSON 对象，不要输出 Markdown 代码块、解释或其他任何文字。\n";
-    prompt << "2. JSON 格式必须为：{\"formulas\":[\"公式1\",\"公式2\"],\"concepts\":[\"知识点1\",\"知识点2\"]}\n";
-    prompt << "3. formulas 只写具体的公式、定理或运算名称（如“余弦定理”“等差数列通项公式”），最多 4 个；"
+    prompt << "2. JSON 格式必须为：{\"grade\":\"高一\",\"formulas\":[\"公式1\",\"公式2\"],"
+              "\"concepts\":[\"知识点1\",\"知识点2\"]}\n";
+    prompt << "3. grade 只能是 高一、高二、高三 之一，按题目主要考查内容归级；无法确定时填 高一。\n";
+    prompt << "4. formulas 只写具体的公式、定理或运算名称（如“余弦定理”“等差数列通项公式”），最多 4 个；"
               "concepts 写知识概念（如“解三角形”“函数的单调性”），最多 5 个。\n";
-    prompt << "4. 每个标签应是简短、规范的名词，长度不超过 16 个汉字；优先复用下面的已有标签。\n";
-    prompt << "5. 如果某类确实没有合适标签，返回空数组 []。不要编造题目没有涉及的内容。\n\n";
+    prompt << "5. 每个标签应是简短、规范的名词，长度不超过 16 个汉字；优先复用下面的已有标签。\n";
+    prompt << "6. 如果某类确实没有合适标签，返回空数组 []。不要编造题目没有涉及的内容。\n\n";
     if (!library.formulas.empty() || !library.concepts.empty()) {
         prompt << "已有公式标签：" << util::Join(library.formulas, "、") << "\n";
         prompt << "已有知识点标签：" << util::Join(library.concepts, "、") << "\n\n";
@@ -592,6 +596,7 @@ AiTagResult AnalyzeQuestionWithAi(const Question& question, const Settings& sett
         return result;
     }
 
+    ParseGrade(tags["grade"].AsString(), result.grade);
     ReadTagList(tags, {"formulas", "formula", "公式"}, result.formulas);
     ReadTagList(tags, {"concepts", "concept", "knowledge_points", "knowledgePoints", "知识点"},
                 result.concepts);
@@ -719,6 +724,12 @@ AiImageQuestionResult AnalyzeQuestionImageWithAi(const std::string& imageDataUrl
         ParseDifficulty((*payloadNode)["difficulty"].AsString("B"), question.difficulty);
         question.answer = NormalizeMathText(util::Trim((*payloadNode)["answer"].AsString()));
         question.analysis = NormalizeMathText(util::Trim((*payloadNode)["analysis"].AsString()));
+        Grade parsedGrade = Grade::Unknown;
+        if (ParseGrade((*payloadNode)["grade"].AsString(), parsedGrade)) {
+            question.grade = parsedGrade;
+        } else {
+            question.grade = InferGrade(question);
+        }
         ReadTagList(*payloadNode, {"formulas", "formula", "公式"}, question.formulas);
         ReadTagList(*payloadNode,
                     {"concepts", "concept", "knowledge_points", "knowledgePoints", "知识点"},
@@ -765,6 +776,165 @@ AiImageQuestionResult AnalyzeQuestionImageWithAi(const std::string& imageDataUrl
     }
     if (result.questions.empty()) {
         result.error = "AI 未能从图片中提取出有效题目。请换一张更清晰、题目更完整的图片。";
+        return result;
+    }
+    result.ok = true;
+    return result;
+}
+
+namespace {
+
+std::string BuildDocumentPrompt(const std::string& documentText, const TagLibrary& library) {
+    std::ostringstream prompt;
+    prompt << "你是一名资深高中数学教师。请从下面的文档内容中整理出所有完整的高中数学题，"
+              "并独立求解。\n\n只输出 JSON 对象，不要输出 Markdown：\n"
+              "{\"questions\":[{\"stem\":\"题干\",\"options\":[\"A选项\"],\"type\":\"choice\","
+              "\"difficulty\":\"B\",\"grade\":\"高一\",\"answer\":\"最终答案\","
+              "\"analysis\":\"关键步骤\",\"formulas\":[\"公式\"],\"concepts\":[\"知识点\"]}]}\n\n"
+              "要求：\n"
+              "1. 每道题都必须有 answer 和 analysis，即使原文没有答案也要自己求解。\n"
+              "2. 数学表达使用可读 Unicode，不要 LaTeX；分数写成“分子/分母”，程序会排版成"
+              "上下分式，不要用 ÷ 或 ／。\n"
+              "3. 忽略文档中的页眉、页脚、考试说明等非题目内容；一道题包含多个小问时合并为一道。\n"
+              "4. grade 只能是 高一、高二、高三 之一；type 为 choice/fill/solution；"
+              "difficulty 为 A/B/C。\n"
+              "5. 若文档无法识别或没有完整题目，返回 {\"error\":\"没有找到完整题目\"}。\n\n";
+    if (!library.formulas.empty()) {
+        prompt << "已有公式标签：" << util::Join(library.formulas, "、") << "\n";
+    }
+    if (!library.concepts.empty()) {
+        prompt << "已有知识点标签：" << util::Join(library.concepts, "、") << "\n";
+    }
+    prompt << "\n文档内容：\n" << ClampPreview(documentText, 30000);
+    return prompt.str();
+}
+
+}  // namespace
+
+AiImageQuestionResult AnalyzeQuestionDocumentWithAi(const std::string& documentText,
+                                                    const Settings& settings,
+                                                    const TagLibrary& library) {
+    AiImageQuestionResult result;
+    if (util::Trim(settings.model).empty()) {
+        result.error = "尚未填写模型名称，请先在“AI 接口”中配置。";
+        return result;
+    }
+    if (util::Trim(documentText).empty()) {
+        result.error = "文档中没有可读取的文字。";
+        return result;
+    }
+    std::string systemPrompt =
+        "你是一名资深高中数学教师，擅长从试卷文字中整理题目、独立求解并结构化输出。"
+        "严格按用户要求只返回 JSON，不要解释。";
+    AiChatResult chat = AskAiChat(settings, systemPrompt,
+                                  BuildDocumentPrompt(documentText, library), 6000, 150000);
+    if (!chat.ok) {
+        result.error = chat.error;
+        return result;
+    }
+    result.rawContent = chat.text;
+    jsonx::Value fields;
+    std::string contentError;
+    if (!ExtractJsonObjectFromContent(chat.text, fields, contentError)) {
+        result.error = contentError;
+        return result;
+    }
+    std::string topError = util::Trim(fields["error"].AsString());
+    if (!topError.empty()) {
+        result.error = topError;
+        return result;
+    }
+
+    auto parseQuestionNode = [](const jsonx::Value& node, Question& question) -> bool {
+        if (!node.IsObject()) return false;
+        std::string stem = util::Trim(node["stem"].AsString());
+        if (stem.empty()) return false;
+        question = Question{};
+        question.stem = NormalizeMathText(stem);
+        const jsonx::Value& options = node["options"];
+        if (options.IsArray()) {
+            for (const auto& item : options.Items()) {
+                if (!item.IsString()) continue;
+                std::string option = NormalizeMathText(CleanOptionText(item.AsString()));
+                if (!option.empty()) question.options.push_back(std::move(option));
+            }
+        }
+        bool parsedType = ParseQuestionType(node["type"].AsString(), question.type);
+        if (!parsedType) {
+            question.type =
+                question.options.size() >= 2 ? QuestionType::Choice : QuestionType::Fill;
+        }
+        ParseDifficulty(node["difficulty"].AsString("B"), question.difficulty);
+        Grade grade = Grade::Unknown;
+        if (ParseGrade(node["grade"].AsString(), grade)) question.grade = grade;
+        else question.grade = InferGrade(question);
+        question.answer = NormalizeMathText(util::Trim(node["answer"].AsString()));
+        question.analysis = NormalizeMathText(util::Trim(node["analysis"].AsString()));
+        ReadTagList(node, {"formulas", "formula", "公式"}, question.formulas);
+        ReadTagList(node, {"concepts", "concept", "knowledge_points", "knowledgePoints", "知识点"},
+                    question.concepts);
+        DedupeTags(question.formulas, 8);
+        DedupeTags(question.concepts, 8);
+        question.tagged = question.HasAnyTag();
+        question.id = util::NewId("q");
+        question.created = util::NowIso8601();
+        if (question.type != QuestionType::Choice) question.options.clear();
+        return true;
+    };
+
+    std::vector<const jsonx::Value*> nodes;
+    for (const char* key : {"questions", "items", "data", "result"}) {
+        const jsonx::Value& list = fields[key];
+        if (!list.IsArray()) continue;
+        for (const auto& item : list.Items()) nodes.push_back(&item);
+        if (!nodes.empty()) break;
+    }
+    if (nodes.empty()) {
+        if (fields["question"].IsObject()) nodes.push_back(&fields["question"]);
+        else if (fields["stem"].IsString()) nodes.push_back(&fields);
+    }
+    for (const jsonx::Value* node : nodes) {
+        Question question;
+        if (parseQuestionNode(*node, question)) {
+            result.questions.push_back(std::move(question));
+            if (result.questions.size() >= 30) break;
+        }
+    }
+    if (result.questions.empty()) {
+        result.error = "AI 没有从文档中整理出有效题目。";
+        return result;
+    }
+    result.ok = true;
+    return result;
+}
+
+AiChatResult AskAiChat(const Settings& settings, const std::string& systemPrompt,
+                       const std::string& userPrompt, int maxTokens, int timeoutMs) {
+    AiChatResult result;
+    if (util::Trim(settings.model).empty()) {
+        result.error = "尚未填写模型名称，请先在“AI 接口”中配置。";
+        return result;
+    }
+    std::string payload = MakeChatPayload(settings, systemPrompt, userPrompt, maxTokens);
+    HttpResponse response = HttpPostJson(settings.apiBase, settings.apiKey, payload, timeoutMs);
+    if (!response.transportOk) {
+        result.error = response.error;
+        return result;
+    }
+    std::string parseError;
+    jsonx::Value root = jsonx::Value::Parse(response.body, &parseError);
+    if (!root.IsObject()) {
+        result.error = "AI 返回内容不是有效 JSON（HTTP " + std::to_string(response.status) + "）。";
+        return result;
+    }
+    if (response.status < 200 || response.status >= 300) {
+        result.error = "AI 接口返回错误（HTTP " + std::to_string(response.status) + "）：" +
+                       ApiErrorMessage(root, response.status, response.body);
+        return result;
+    }
+    result.text = util::Trim(ExtractMessageContent(root));
+    if (result.text.empty()) {
+        result.error = "AI 响应中没有文本内容。";
         return result;
     }
     result.ok = true;

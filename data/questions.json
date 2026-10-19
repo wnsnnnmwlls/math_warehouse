@@ -8,12 +8,14 @@
         "集合的交集",
         "集合的表示法"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "A",
+      "favorite": false,
       "formulas": [
         "集合交集的定义"
       ],
-      "id": "seed_5e27c9780b7b",
+      "grade": "",
+      "id": "seed_5e2b49a75d33",
       "options": [
         "{1,2}",
         "{2,3}",
@@ -32,12 +34,14 @@
         "函数求值",
         "一次函数"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "A",
+      "favorite": false,
       "formulas": [
         "一次函数解析式"
       ],
-      "id": "seed_279eb6327015",
+      "grade": "",
+      "id": "seed_279236ed21ab",
       "options": [
         "3",
         "4",
@@ -55,12 +59,14 @@
         "三角函数",
         "任意角的三角函数"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "A",
+      "favorite": false,
       "formulas": [
         "特殊角三角函数值"
       ],
-      "id": "seed_ad5537ecf42f",
+      "grade": "",
+      "id": "seed_ad59b733a5e8",
       "options": [],
       "stem": "sin 30° 的值为______．",
       "tagged": true,
@@ -73,12 +79,14 @@
         "等差数列",
         "数列的通项公式"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "A",
+      "favorite": false,
       "formulas": [
         "等差数列通项公式"
       ],
-      "id": "seed_330bb4a77839",
+      "grade": "",
+      "id": "seed_3307347829fc",
       "options": [],
       "stem": "已知等差数列 {aₙ} 中，a₁=2，公差 d=3，则 a₅=______．",
       "tagged": true,
@@ -91,12 +99,14 @@
         "复数的概念",
         "复平面"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "A",
+      "favorite": false,
       "formulas": [
         "复数模的公式"
       ],
-      "id": "seed_b8c23451fc53",
+      "grade": "",
+      "id": "seed_b8ceb48ead93",
       "options": [],
       "stem": "若复数 z=3+4i，则 |z|=______．",
       "tagged": true,
@@ -109,12 +119,14 @@
         "古典概型",
         "样本空间"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "A",
+      "favorite": false,
       "formulas": [
         "古典概型概率公式"
       ],
-      "id": "seed_3eb8b50c6060",
+      "grade": "",
+      "id": "seed_3eb435d331a1",
       "options": [
         "1/6",
         "1/3",
@@ -133,12 +145,14 @@
         "正方体",
         "空间几何体的体积"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "A",
+      "favorite": false,
       "formulas": [
         "正方体体积公式"
       ],
-      "id": "seed_847f32c6e474",
+      "grade": "",
+      "id": "seed_8473b219b5b7",
       "options": [],
       "stem": "已知正方体的棱长为 2，则该正方体的体积为______．",
       "tagged": true,
@@ -151,12 +165,14 @@
         "平面向量",
         "数量积"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "A",
+      "favorite": false,
       "formulas": [
         "平面向量数量积的坐标公式"
       ],
-      "id": "seed_a35b271689f",
+      "grade": "",
+      "id": "seed_a3932ae395e",
       "options": [
         "-1",
         "1",
@@ -175,13 +191,15 @@
         "二次函数",
         "函数的单调性"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "B",
+      "favorite": false,
       "formulas": [
         "导数与函数单调性的关系",
         "二次函数对称轴公式"
       ],
-      "id": "seed_93ec332beca7",
+      "grade": "",
+      "id": "seed_93e0b3f4bd78",
       "options": [
         "(-∞,2]",
         "[2,+∞)",
@@ -200,12 +218,14 @@
         "解三角形",
         "三角形的边角关系"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "B",
+      "favorite": false,
       "formulas": [
         "余弦定理"
       ],
-      "id": "seed_19a2b0e650ac",
+      "grade": "",
+      "id": "seed_19ae3039016c",
       "options": [
         "√13",
         "√37",
@@ -224,12 +244,14 @@
         "三角函数值的符号",
         "同角三角函数关系"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "B",
+      "favorite": false,
       "formulas": [
         "同角三角函数的基本关系"
       ],
-      "id": "seed_9f193190d4c0",
+      "grade": "",
+      "id": "seed_9f15b14f8507",
       "options": [],
       "stem": "已知 sin α=3/5，且 α∈(π/2,π)，则 cos α=______．",
       "tagged": true,
@@ -242,12 +264,14 @@
         "递推数列",
         "等比数列"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "B",
+      "favorite": false,
       "formulas": [
         "构造等比数列求通项"
       ],
-      "id": "seed_64dfb14b58f4",
+      "grade": "",
+      "id": "seed_64d331940930",
       "options": [],
       "stem": "数列 {aₙ} 满足 a₁=1，aₙ₊₁=2aₙ+1，则 a₄=______．",
       "tagged": true,
@@ -260,12 +284,14 @@
         "圆的标准方程",
         "配方法"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "B",
+      "favorite": false,
       "formulas": [
         "圆的一般方程化为标准方程"
       ],
-      "id": "seed_ea963e05dce9",
+      "grade": "",
+      "id": "seed_ea9abeda8d24",
       "options": [],
       "stem": "已知圆 C 的方程为 x²+y²-4x-6y+4=0，求圆 C 的圆心坐标和半径．",
       "tagged": true,
@@ -278,13 +304,15 @@
         "分组分配问题",
         "两个计数原理"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "B",
+      "favorite": false,
       "formulas": [
         "组合数公式",
         "排列数公式"
       ],
-      "id": "seed_704cbfb04108",
+      "grade": "",
+      "id": "seed_70403f6f10c8",
       "options": [],
       "stem": "将 4 本不同的书分给 3 名同学，每人至少分得 1 本，则不同的分法共有______种．",
       "tagged": true,
@@ -298,10 +326,12 @@
         "对数函数的单调性",
         "对数函数的定义域"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "B",
+      "favorite": false,
       "formulas": [],
-      "id": "seed_f6033f6ac53a",
+      "grade": "",
+      "id": "seed_f60fbfb594fd",
       "options": [
         "(0,2)",
         "(0,1)",
@@ -320,13 +350,15 @@
         "正方体的外接球",
         "空间几何体的结构"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "B",
+      "favorite": false,
       "formulas": [
         "球表面积公式",
         "长方体体对角线公式"
       ],
-      "id": "seed_7ff9bc25491b",
+      "grade": "",
+      "id": "seed_7ff53cfa18e6",
       "options": [
         "4π",
         "8π",
@@ -344,12 +376,14 @@
         "闭区间上的最值",
         "利用导数研究函数性质"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "B",
+      "favorite": false,
       "formulas": [
         "导数与极值的关系"
       ],
-      "id": "seed_c5b03ddfcd71",
+      "grade": "",
+      "id": "seed_c5bcbd009c8e",
       "options": [],
       "stem": "函数 f(x)=x³-3x 在区间 [-2,2] 上的最大值为______．",
       "tagged": true,
@@ -362,13 +396,15 @@
         "数列的前n项和",
         "裂项相消求和"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "B",
+      "favorite": false,
       "formulas": [
         "aₙ与Sₙ的关系",
         "裂项相消法"
       ],
-      "id": "seed_4b76ba8a3147",
+      "grade": "",
+      "id": "seed_4b7a3a556087",
       "options": [],
       "stem": "已知数列 {aₙ} 的前 n 项和 Sₙ=n²+n．(1) 求 {aₙ} 的通项公式；(2) 设 bₙ=1/(aₙaₙ₊₁)，求数列 {bₙ} 的前 n 项和 Tₙ．",
       "tagged": true,
@@ -381,13 +417,15 @@
         "切线方程",
         "导数的计算"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "C",
+      "favorite": false,
       "formulas": [
         "导数的几何意义",
         "乘积的求导法则"
       ],
-      "id": "seed_d12d3a44b559",
+      "grade": "",
+      "id": "seed_d121ba9be499",
       "options": [
         "y=x",
         "y=2x",
@@ -405,12 +443,14 @@
         "最值问题",
         "代换法"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "C",
+      "favorite": false,
       "formulas": [
         "基本不等式"
       ],
-      "id": "seed_56e3bbff39a9",
+      "grade": "",
+      "id": "seed_56ef3b20686b",
       "options": [],
       "stem": "已知 x>0，y>0，且 x+y=1，则 1/x+4/y 的最小值为______．",
       "tagged": true,
@@ -423,12 +463,14 @@
         "双曲线的标准方程",
         "双曲线的性质"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "C",
+      "favorite": false,
       "formulas": [
         "双曲线的离心率公式"
       ],
-      "id": "seed_dc5a38a9bd83",
+      "grade": "",
+      "id": "seed_dc56b876ec4c",
       "options": [],
       "stem": "双曲线 x²/4-y²/12=1 的离心率为______．",
       "tagged": true,
@@ -441,13 +483,15 @@
         "直线与抛物线的位置关系",
         "焦点弦"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "C",
+      "favorite": false,
       "formulas": [
         "抛物线的焦点弦长公式",
         "根与系数的关系"
       ],
-      "id": "seed_a210b8642190",
+      "grade": "",
+      "id": "seed_a21c38bb7050",
       "options": [],
       "stem": "已知抛物线 y²=4x 的焦点为 F，过 F 的直线与抛物线交于 A、B 两点，若线段 AB 中点的横坐标为 3，求 |AB|．",
       "tagged": true,
@@ -461,13 +505,15 @@
         "补形法",
         "三棱锥的外接球"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "C",
+      "favorite": false,
       "formulas": [
         "球表面积公式",
         "长方体体对角线公式"
       ],
-      "id": "seed_2bd7391ea5e4",
+      "grade": "",
+      "id": "seed_2bdbb9c1f422",
       "options": [],
       "stem": "在三棱锥 P-ABC 中，PA⊥平面 ABC，AB⊥AC，PA=AB=AC=2，求三棱锥 P-ABC 外接球的表面积．",
       "tagged": true,
@@ -481,18 +527,20 @@
         "含参数分类讨论",
         "利用导数求单调区间"
       ],
-      "created": "2026-10-18T22:58:29Z",
+      "created": "2026-10-19T13:13:34Z",
       "difficulty": "C",
+      "favorite": false,
       "formulas": [
         "导数与函数单调性的关系"
       ],
-      "id": "seed_b18da6c929ce",
+      "grade": "",
+      "id": "seed_b1812616780d",
       "options": [],
       "stem": "已知函数 f(x)=ln x-ax+1（a∈R），求函数 f(x) 的单调区间．",
       "tagged": true,
       "type": "solution"
     }
   ],
-  "updated": "2026-10-18T22:58:29Z",
+  "updated": "2026-10-19T13:13:34Z",
   "version": 1
 }

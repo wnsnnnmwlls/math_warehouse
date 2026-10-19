@@ -1,5 +1,6 @@
 #include "editor.h"
 
+#include "keyboard.h"
 #include "util.h"
 
 #ifndef WIN32_LEAN_AND_MEAN
@@ -56,6 +57,8 @@ Gdiplus::Color RedSoft;
 Gdiplus::Color Hover;
 Gdiplus::Color Green;
 Gdiplus::Color GreenSoft;
+Gdiplus::Color Amber;
+Gdiplus::Color AmberSoft;
 Gdiplus::Color OnAccent;
 Gdiplus::Color DisabledFill;
 Gdiplus::Color AccentBorder;
@@ -81,6 +84,8 @@ void Apply(bool dark) {
         Hover = ui::Color(246, 246, 251);
         Green = ui::Color(21, 134, 88);
         GreenSoft = ui::Color(234, 248, 240);
+        Amber = ui::Color(178, 106, 9);
+        AmberSoft = ui::Color(255, 244, 227);
         DisabledFill = ui::Color(239, 241, 246);
         AccentBorder = ui::Color(203, 199, 255);
     } else {
@@ -102,6 +107,8 @@ void Apply(bool dark) {
         Hover = ui::Color(32, 40, 54);
         Green = ui::Color(91, 214, 163);
         GreenSoft = ui::Color(22, 53, 43);
+        Amber = ui::Color(233, 185, 110);
+        AmberSoft = ui::Color(58, 45, 27);
         DisabledFill = ui::Color(26, 33, 48);
         AccentBorder = ui::Color(76, 70, 140);
     }
@@ -160,6 +167,7 @@ struct Layout {
     ui::Rect saveButton;
     ui::Rect cancelButton;
     ui::Rect deleteButton;
+    ui::Rect mathKeyboardButton;
     ui::Rect tipCard;
 };
 
@@ -189,6 +197,8 @@ private:
     bool hasDraft_ = false;
     Difficulty difficulty_ = Difficulty::B;
     QuestionType type_ = QuestionType::Choice;
+    Grade grade_ = Grade::Unknown;
+    bool favorite_ = false;
     Question original_;
     QuestionEditorResult result_;
     std::wstring errorMessage_;
@@ -199,6 +209,7 @@ private:
     HWND hAnalysis_ = nullptr;
     HWND hFormulas_ = nullptr;
     HWND hConcepts_ = nullptr;
+    HWND lastFocusedEdit_ = nullptr;
 
     std::vector<HWND> tabOrder_;
     std::vector<HWND> allEdits_;
@@ -249,12 +260,16 @@ EditorWindow::EditorWindow(HWND owner, ui::Theme& theme, const TagLibrary& libra
         original_ = *existing;
         difficulty_ = original_.difficulty;
         type_ = original_.type;
+        grade_ = original_.grade;
+        favorite_ = original_.favorite;
         result_.question = original_;
     } else if (draft) {
         hasDraft_ = true;
         original_ = *draft;
         difficulty_ = original_.difficulty;
         type_ = original_.type;
+        grade_ = original_.grade;
+        favorite_ = original_.favorite;
         result_.question = original_;
     } else {
         difficulty_ = Difficulty::B;
@@ -428,6 +443,7 @@ Layout EditorWindow::GetLayout() const {
     layout.saveButton = ui::Rect{kDesignWidth - 28.0f - 112.0f, 650.0f, 112.0f, 38.0f};
     layout.cancelButton = ui::Rect{layout.saveButton.x - 10.0f - 84.0f, 650.0f, 84.0f, 38.0f};
     layout.deleteButton = ui::Rect{28.0f, 653.0f, 96.0f, 32.0f};
+    layout.mathKeyboardButton = ui::Rect{140.0f, 650.0f, 108.0f, 34.0f};
     return layout;
 }
 
@@ -608,6 +624,32 @@ void EditorWindow::OnPaint() {
                     edcol::Green, true);
     }
 
+    canvas.Text(L"年级", ui::Rect{544.0f, 26.0f, 42.0f, 18.0f}, 9.5f, edcol::Muted, true);
+    const wchar_t* gradeLabels[] = {L"高一", L"高二", L"高三"};
+    for (int i = 0; i < 3; ++i) {
+        ui::Rect chip{590.0f + static_cast<float>(i) * 52.0f, 22.0f, 48.0f, 30.0f};
+        bool active = static_cast<int>(grade_) == i + 1;
+        bool hovered = IsHovered(L"grade", std::to_wstring(i + 1));
+        Gdiplus::Color fill = active ? edcol::AccentSoft : edcol::Card;
+        Gdiplus::Color border = active ? edcol::AccentBorder : edcol::Border;
+        if (hovered && !active) {
+            fill = edcol::Hover;
+            border = edcol::BorderStrong;
+        }
+        canvas.FillRect(chip, fill, 8.0f);
+        canvas.StrokeRect(chip, border, 8.0f, active ? 1.2f : 1.0f);
+        canvas.Text(gradeLabels[i], chip, 10.0f, active ? edcol::Accent : edcol::InkSoft, active,
+                    Gdiplus::StringAlignmentCenter);
+        AddHit(chip, L"grade", std::to_wstring(i + 1));
+    }
+    ui::Rect favoriteButton{748.0f, 22.0f, 36.0f, 30.0f};
+    bool favoriteHovered = IsHovered(L"favorite", L"");
+    if (favoriteHovered) canvas.FillRect(favoriteButton, edcol::AmberSoft, 8.0f);
+    canvas.Text(favorite_ ? L"★" : L"☆", favoriteButton, 17.0f,
+                favorite_ ? edcol::Amber : edcol::Faint, false,
+                Gdiplus::StringAlignmentCenter, Gdiplus::StringAlignmentCenter);
+    AddHit(favoriteButton, L"favorite");
+
     canvas.Text(L"题干 *", ui::Rect{28.0f, 93.0f, 160.0f, 16.0f}, 11.0f, edcol::InkSoft, true);
     DrawField(canvas, layout.stemField, hStem_);
 
@@ -680,11 +722,12 @@ void EditorWindow::OnPaint() {
     } else {
         canvas.Text(hasExisting_ ? L"修改会覆盖原题；可以删除不再需要的题目。"
                                  : L"Ctrl + S 保存 · Esc 取消 · 标签可留空，稍后让 AI 补全",
-                    ui::Rect{140.0f, 650.0f, 520.0f, 38.0f}, 9.8f, edcol::Faint, false);
+                    ui::Rect{254.0f, 650.0f, 410.0f, 38.0f}, 9.8f, edcol::Faint, false);
     }
     if (hasExisting_) {
         DrawButton(canvas, layout.deleteButton, L"删除题目", L"delete", 2, true);
     }
+    DrawButton(canvas, layout.mathKeyboardButton, L"⌨ 数学键盘", L"math_keyboard", 2, true);
     DrawButton(canvas, layout.cancelButton, L"取消", L"cancel", 1, true);
     DrawButton(canvas, layout.saveButton, L"保存题目", L"save", 0, true);
 
@@ -744,6 +787,18 @@ void EditorWindow::OnMouseUp(float x, float y) {
             Cancel();
         } else if (action == L"delete") {
             Delete();
+        } else if (action == L"math_keyboard") {
+            HWND target = GetFocus();
+            bool validTarget = false;
+            for (HWND edit : allEdits_) {
+                if (edit == target) {
+                    validTarget = true;
+                    break;
+                }
+            }
+            if (!validTarget) target = lastFocusedEdit_;
+            if (!target || !IsWindow(target)) target = hStem_;
+            ShowMathKeyboard(hwnd_, target, theme_);
         } else if (action == L"difficulty") {
             int index = util::ClampInt(std::stoi(payload), 0, 2);
             difficulty_ = static_cast<Difficulty>(index);
@@ -758,6 +813,14 @@ void EditorWindow::OnMouseUp(float x, float y) {
                 UpdateChildLayout();
                 InvalidateRect(hwnd_, nullptr, FALSE);
             }
+        } else if (action == L"grade") {
+            grade_ = static_cast<Grade>(util::ClampInt(std::stoi(payload), 1, 3));
+            dirty_ = true;
+            InvalidateRect(hwnd_, nullptr, FALSE);
+        } else if (action == L"favorite") {
+            favorite_ = !favorite_;
+            dirty_ = true;
+            InvalidateRect(hwnd_, nullptr, FALSE);
         } else if (action == L"focus_field") {
             if (payload == L"stem") SetFocus(hStem_);
             else if (payload == L"answer") SetFocus(hAnswer_);
@@ -787,6 +850,8 @@ void EditorWindow::TrySave() {
     if (question.created.empty()) question.created = util::NowIso8601();
     question.difficulty = difficulty_;
     question.type = type_;
+    question.grade = grade_;
+    question.favorite = favorite_;
     question.stem = stem;
     question.answer = util::Trim(GetTextUtf8(hAnswer_));
     question.analysis = util::Trim(GetTextUtf8(hAnalysis_));
@@ -849,6 +914,7 @@ void EditorWindow::RequestWindowClose() {
 }
 
 void EditorWindow::DestroyEditor() {
+    CloseMathKeyboard();
     if (hwnd_) DestroyWindow(hwnd_);
 }
 
@@ -868,7 +934,10 @@ LRESULT EditorWindow::HandleMessage(HWND hwnd, UINT message, WPARAM wParam, LPAR
                     errorMessage_.clear();
                 }
                 InvalidateRect(hwnd_, nullptr, FALSE);
-            } else if (notification == EN_SETFOCUS || notification == EN_KILLFOCUS) {
+            } else if (notification == EN_SETFOCUS) {
+                lastFocusedEdit_ = reinterpret_cast<HWND>(lParam);
+                InvalidateRect(hwnd_, nullptr, FALSE);
+            } else if (notification == EN_KILLFOCUS) {
                 InvalidateRect(hwnd_, nullptr, FALSE);
             }
             return 0;

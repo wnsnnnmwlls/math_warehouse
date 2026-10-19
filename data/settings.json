@@ -1,7 +1,6 @@
 {
   "api_base": "https://api.deepseek.com",
-  "api_key_protected": "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAALfN0upV+YUqmCVBMpo89EAAAAAAwAAAATQBhAHQAaABQAGEAcABlAHIAUwB0AHUAZABpAG8AIABBAFAASQAgAGsAZQB5AAAAEGYAAAABAAAgAAAA1AFulp3iFeIMRN7qkP0sOpHmaZOoTDTCqXD4qFAOFScAAAAADoAAAAACAAAgAAAA+C8PDKLY4H6xbIq54FEPM3l+Ktw0IlMSczMHifrWAhwwAAAAE5zZjCS2tjoBaYuuPo1/rgIMjtoApd8xixmyoVRwlmyRlYQjVGRz3fByfEJGEMY2QAAAALXWsrre6dz4JWhhuOjPWsa75Rq7NYWz4zLVYkDKzQdbc3iRaWod/5x+YwpMWly2XQ7Dsvesjl3McLAPmq6I+MU=",
-  "key_protection": "windows-dpapi",
+  "dark_mode": false,
   "model": "deepseek-chat",
   "temperature": 0.2,
   "version": 1
