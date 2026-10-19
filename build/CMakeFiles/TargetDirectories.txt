@@ -1,0 +1,4 @@
+C:/Users/lio/Desktop/MathPaperStudio/build/CMakeFiles/MathPaperStudio.dir
+C:/Users/lio/Desktop/MathPaperStudio/build/CMakeFiles/MathPaperStudioSelfTest.dir
+C:/Users/lio/Desktop/MathPaperStudio/build/CMakeFiles/edit_cache.dir
+C:/Users/lio/Desktop/MathPaperStudio/build/CMakeFiles/rebuild_cache.dir

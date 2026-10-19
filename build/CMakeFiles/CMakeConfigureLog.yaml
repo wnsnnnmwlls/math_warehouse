@@ -1,0 +1,2265 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineSystem.cmake:218 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.19045 - AMD64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeMinGWFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mingw32-make.exe"
+    candidate_directories:
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+      - "C:/mingw64/bin/"
+      - "/REGISTRY-NOTFOUND/bin/"
+      - "c:/MinGW/bin/"
+      - "/MinGW/bin/"
+      - "/REGISTRY-NOTFOUND/MinGW/bin/"
+    searched_directories:
+      - "C:/Windows/System32/mingw32-make.exe.com"
+      - "C:/Windows/System32/mingw32-make.exe"
+      - "C:/Windows/mingw32-make.exe.com"
+      - "C:/Windows/mingw32-make.exe"
+      - "C:/Windows/System32/wbem/mingw32-make.exe.com"
+      - "C:/Windows/System32/wbem/mingw32-make.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mingw32-make.exe.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mingw32-make.exe"
+      - "C:/Windows/System32/OpenSSH/mingw32-make.exe.com"
+      - "C:/Windows/System32/OpenSSH/mingw32-make.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/mingw32-make.exe.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/mingw32-make.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mingw32-make.exe.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mingw32-make.exe"
+      - "C:/MYAPP/Git/cmd/mingw32-make.exe.com"
+      - "C:/MYAPP/Git/cmd/mingw32-make.exe"
+      - "C:/Program Files/dotnet/mingw32-make.exe.com"
+      - "C:/Program Files/dotnet/mingw32-make.exe"
+      - "C:/Program Files/CMake/bin/mingw32-make.exe.com"
+      - "C:/Program Files/CMake/bin/mingw32-make.exe"
+      - "C:/Program Files/nodejs/mingw32-make.exe.com"
+      - "C:/Program Files/nodejs/mingw32-make.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/mingw32-make.exe.com"
+      - "C:/Program Files (x86)/ZeroTier/One/mingw32-make.exe"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/mingw32-make.exe.com"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/mingw32-make.exe"
+      - "C:/MYAPP/Microsoft VS Code/bin/mingw32-make.exe.com"
+      - "C:/MYAPP/Microsoft VS Code/bin/mingw32-make.exe"
+      - "C:/Users/lio/AppData/Local/Python/bin/mingw32-make.exe.com"
+      - "C:/Users/lio/AppData/Local/Python/bin/mingw32-make.exe"
+      - "C:/Users/lio/.dotnet/tools/mingw32-make.exe.com"
+      - "C:/Users/lio/.dotnet/tools/mingw32-make.exe"
+      - "C:/Users/lio/AppData/Roaming/npm/mingw32-make.exe.com"
+      - "C:/Users/lio/AppData/Roaming/npm/mingw32-make.exe"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/mingw32-make.exe.com"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/mingw32-make.exe"
+      - "C:/mingw64/bin/mingw32-make.exe.com"
+    found: "C:/mingw64/bin/mingw32-make.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompiler.cmake:63 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:69 (_cmake_find_compiler)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER"
+    description: "CXX compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: false
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "c++"
+      - "g++"
+      - "cl"
+      - "bcc"
+      - "icx"
+      - "clang++"
+    candidate_directories:
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+      - "C:/mingw64/bin/"
+    searched_directories:
+      - "C:/Windows/System32/c++.com"
+      - "C:/Windows/System32/c++.exe"
+      - "C:/Windows/System32/c++"
+      - "C:/Windows/System32/g++.com"
+      - "C:/Windows/System32/g++.exe"
+      - "C:/Windows/System32/g++"
+      - "C:/Windows/System32/cl.com"
+      - "C:/Windows/System32/cl.exe"
+      - "C:/Windows/System32/cl"
+      - "C:/Windows/System32/bcc.com"
+      - "C:/Windows/System32/bcc.exe"
+      - "C:/Windows/System32/bcc"
+      - "C:/Windows/System32/icx.com"
+      - "C:/Windows/System32/icx.exe"
+      - "C:/Windows/System32/icx"
+      - "C:/Windows/System32/clang++.com"
+      - "C:/Windows/System32/clang++.exe"
+      - "C:/Windows/System32/clang++"
+      - "C:/Windows/c++.com"
+      - "C:/Windows/c++.exe"
+      - "C:/Windows/c++"
+      - "C:/Windows/g++.com"
+      - "C:/Windows/g++.exe"
+      - "C:/Windows/g++"
+      - "C:/Windows/cl.com"
+      - "C:/Windows/cl.exe"
+      - "C:/Windows/cl"
+      - "C:/Windows/bcc.com"
+      - "C:/Windows/bcc.exe"
+      - "C:/Windows/bcc"
+      - "C:/Windows/icx.com"
+      - "C:/Windows/icx.exe"
+      - "C:/Windows/icx"
+      - "C:/Windows/clang++.com"
+      - "C:/Windows/clang++.exe"
+      - "C:/Windows/clang++"
+      - "C:/Windows/System32/wbem/c++.com"
+      - "C:/Windows/System32/wbem/c++.exe"
+      - "C:/Windows/System32/wbem/c++"
+      - "C:/Windows/System32/wbem/g++.com"
+      - "C:/Windows/System32/wbem/g++.exe"
+      - "C:/Windows/System32/wbem/g++"
+      - "C:/Windows/System32/wbem/cl.com"
+      - "C:/Windows/System32/wbem/cl.exe"
+      - "C:/Windows/System32/wbem/cl"
+      - "C:/Windows/System32/wbem/bcc.com"
+      - "C:/Windows/System32/wbem/bcc.exe"
+      - "C:/Windows/System32/wbem/bcc"
+      - "C:/Windows/System32/wbem/icx.com"
+      - "C:/Windows/System32/wbem/icx.exe"
+      - "C:/Windows/System32/wbem/icx"
+      - "C:/Windows/System32/wbem/clang++.com"
+      - "C:/Windows/System32/wbem/clang++.exe"
+      - "C:/Windows/System32/wbem/clang++"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/c++.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/c++.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/c++"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/g++.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/g++.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/g++"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/cl.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/cl.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/cl"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/bcc.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/bcc.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/bcc"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/icx.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/icx.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/icx"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/clang++.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/clang++.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/clang++"
+      - "C:/Windows/System32/OpenSSH/c++.com"
+      - "C:/Windows/System32/OpenSSH/c++.exe"
+      - "C:/Windows/System32/OpenSSH/c++"
+      - "C:/Windows/System32/OpenSSH/g++.com"
+      - "C:/Windows/System32/OpenSSH/g++.exe"
+      - "C:/Windows/System32/OpenSSH/g++"
+      - "C:/Windows/System32/OpenSSH/cl.com"
+      - "C:/Windows/System32/OpenSSH/cl.exe"
+      - "C:/Windows/System32/OpenSSH/cl"
+      - "C:/Windows/System32/OpenSSH/bcc.com"
+      - "C:/Windows/System32/OpenSSH/bcc.exe"
+      - "C:/Windows/System32/OpenSSH/bcc"
+      - "C:/Windows/System32/OpenSSH/icx.com"
+      - "C:/Windows/System32/OpenSSH/icx.exe"
+      - "C:/Windows/System32/OpenSSH/icx"
+      - "C:/Windows/System32/OpenSSH/clang++.com"
+      - "C:/Windows/System32/OpenSSH/clang++.exe"
+      - "C:/Windows/System32/OpenSSH/clang++"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/c++.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/c++.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/c++"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/g++.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/g++.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/g++"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/cl.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/cl.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/cl"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/bcc.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/bcc.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/bcc"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/icx.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/icx.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/icx"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/clang++.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/clang++.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/clang++"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/c++.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/c++.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/c++"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/g++.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/g++.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/g++"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/cl.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/cl.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/cl"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/bcc.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/bcc.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/bcc"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/icx.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/icx.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/icx"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/clang++.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/clang++.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/clang++"
+      - "C:/MYAPP/Git/cmd/c++.com"
+      - "C:/MYAPP/Git/cmd/c++.exe"
+      - "C:/MYAPP/Git/cmd/c++"
+      - "C:/MYAPP/Git/cmd/g++.com"
+      - "C:/MYAPP/Git/cmd/g++.exe"
+      - "C:/MYAPP/Git/cmd/g++"
+      - "C:/MYAPP/Git/cmd/cl.com"
+      - "C:/MYAPP/Git/cmd/cl.exe"
+      - "C:/MYAPP/Git/cmd/cl"
+      - "C:/MYAPP/Git/cmd/bcc.com"
+      - "C:/MYAPP/Git/cmd/bcc.exe"
+      - "C:/MYAPP/Git/cmd/bcc"
+      - "C:/MYAPP/Git/cmd/icx.com"
+      - "C:/MYAPP/Git/cmd/icx.exe"
+      - "C:/MYAPP/Git/cmd/icx"
+      - "C:/MYAPP/Git/cmd/clang++.com"
+      - "C:/MYAPP/Git/cmd/clang++.exe"
+      - "C:/MYAPP/Git/cmd/clang++"
+      - "C:/Program Files/dotnet/c++.com"
+      - "C:/Program Files/dotnet/c++.exe"
+      - "C:/Program Files/dotnet/c++"
+      - "C:/Program Files/dotnet/g++.com"
+      - "C:/Program Files/dotnet/g++.exe"
+      - "C:/Program Files/dotnet/g++"
+      - "C:/Program Files/dotnet/cl.com"
+      - "C:/Program Files/dotnet/cl.exe"
+      - "C:/Program Files/dotnet/cl"
+      - "C:/Program Files/dotnet/bcc.com"
+      - "C:/Program Files/dotnet/bcc.exe"
+      - "C:/Program Files/dotnet/bcc"
+      - "C:/Program Files/dotnet/icx.com"
+      - "C:/Program Files/dotnet/icx.exe"
+      - "C:/Program Files/dotnet/icx"
+      - "C:/Program Files/dotnet/clang++.com"
+      - "C:/Program Files/dotnet/clang++.exe"
+      - "C:/Program Files/dotnet/clang++"
+      - "C:/Program Files/CMake/bin/c++.com"
+      - "C:/Program Files/CMake/bin/c++.exe"
+      - "C:/Program Files/CMake/bin/c++"
+      - "C:/Program Files/CMake/bin/g++.com"
+      - "C:/Program Files/CMake/bin/g++.exe"
+      - "C:/Program Files/CMake/bin/g++"
+      - "C:/Program Files/CMake/bin/cl.com"
+      - "C:/Program Files/CMake/bin/cl.exe"
+      - "C:/Program Files/CMake/bin/cl"
+      - "C:/Program Files/CMake/bin/bcc.com"
+      - "C:/Program Files/CMake/bin/bcc.exe"
+      - "C:/Program Files/CMake/bin/bcc"
+      - "C:/Program Files/CMake/bin/icx.com"
+      - "C:/Program Files/CMake/bin/icx.exe"
+      - "C:/Program Files/CMake/bin/icx"
+      - "C:/Program Files/CMake/bin/clang++.com"
+      - "C:/Program Files/CMake/bin/clang++.exe"
+      - "C:/Program Files/CMake/bin/clang++"
+      - "C:/Program Files/nodejs/c++.com"
+      - "C:/Program Files/nodejs/c++.exe"
+      - "C:/Program Files/nodejs/c++"
+      - "C:/Program Files/nodejs/g++.com"
+      - "C:/Program Files/nodejs/g++.exe"
+      - "C:/Program Files/nodejs/g++"
+      - "C:/Program Files/nodejs/cl.com"
+      - "C:/Program Files/nodejs/cl.exe"
+      - "C:/Program Files/nodejs/cl"
+      - "C:/Program Files/nodejs/bcc.com"
+      - "C:/Program Files/nodejs/bcc.exe"
+      - "C:/Program Files/nodejs/bcc"
+      - "C:/Program Files/nodejs/icx.com"
+      - "C:/Program Files/nodejs/icx.exe"
+      - "C:/Program Files/nodejs/icx"
+      - "C:/Program Files/nodejs/clang++.com"
+      - "C:/Program Files/nodejs/clang++.exe"
+      - "C:/Program Files/nodejs/clang++"
+      - "C:/Program Files (x86)/ZeroTier/One/c++.com"
+      - "C:/Program Files (x86)/ZeroTier/One/c++.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/c++"
+      - "C:/Program Files (x86)/ZeroTier/One/g++.com"
+      - "C:/Program Files (x86)/ZeroTier/One/g++.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/g++"
+      - "C:/Program Files (x86)/ZeroTier/One/cl.com"
+      - "C:/Program Files (x86)/ZeroTier/One/cl.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/cl"
+      - "C:/Program Files (x86)/ZeroTier/One/bcc.com"
+      - "C:/Program Files (x86)/ZeroTier/One/bcc.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/bcc"
+      - "C:/Program Files (x86)/ZeroTier/One/icx.com"
+      - "C:/Program Files (x86)/ZeroTier/One/icx.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/icx"
+      - "C:/Program Files (x86)/ZeroTier/One/clang++.com"
+      - "C:/Program Files (x86)/ZeroTier/One/clang++.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/clang++"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/c++.com"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/c++.exe"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/c++"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/g++.com"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/g++.exe"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/g++"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/cl.com"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/cl.exe"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/cl"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/bcc.com"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/bcc.exe"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/bcc"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/icx.com"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/icx.exe"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/icx"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/clang++.com"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/clang++.exe"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/clang++"
+      - "C:/MYAPP/Microsoft VS Code/bin/c++.com"
+      - "C:/MYAPP/Microsoft VS Code/bin/c++.exe"
+      - "C:/MYAPP/Microsoft VS Code/bin/c++"
+      - "C:/MYAPP/Microsoft VS Code/bin/g++.com"
+      - "C:/MYAPP/Microsoft VS Code/bin/g++.exe"
+      - "C:/MYAPP/Microsoft VS Code/bin/g++"
+      - "C:/MYAPP/Microsoft VS Code/bin/cl.com"
+      - "C:/MYAPP/Microsoft VS Code/bin/cl.exe"
+      - "C:/MYAPP/Microsoft VS Code/bin/cl"
+      - "C:/MYAPP/Microsoft VS Code/bin/bcc.com"
+      - "C:/MYAPP/Microsoft VS Code/bin/bcc.exe"
+      - "C:/MYAPP/Microsoft VS Code/bin/bcc"
+      - "C:/MYAPP/Microsoft VS Code/bin/icx.com"
+      - "C:/MYAPP/Microsoft VS Code/bin/icx.exe"
+      - "C:/MYAPP/Microsoft VS Code/bin/icx"
+      - "C:/MYAPP/Microsoft VS Code/bin/clang++.com"
+      - "C:/MYAPP/Microsoft VS Code/bin/clang++.exe"
+      - "C:/MYAPP/Microsoft VS Code/bin/clang++"
+      - "C:/Users/lio/AppData/Local/Python/bin/c++.com"
+      - "C:/Users/lio/AppData/Local/Python/bin/c++.exe"
+      - "C:/Users/lio/AppData/Local/Python/bin/c++"
+      - "C:/Users/lio/AppData/Local/Python/bin/g++.com"
+      - "C:/Users/lio/AppData/Local/Python/bin/g++.exe"
+      - "C:/Users/lio/AppData/Local/Python/bin/g++"
+      - "C:/Users/lio/AppData/Local/Python/bin/cl.com"
+      - "C:/Users/lio/AppData/Local/Python/bin/cl.exe"
+      - "C:/Users/lio/AppData/Local/Python/bin/cl"
+      - "C:/Users/lio/AppData/Local/Python/bin/bcc.com"
+      - "C:/Users/lio/AppData/Local/Python/bin/bcc.exe"
+      - "C:/Users/lio/AppData/Local/Python/bin/bcc"
+      - "C:/Users/lio/AppData/Local/Python/bin/icx.com"
+      - "C:/Users/lio/AppData/Local/Python/bin/icx.exe"
+      - "C:/Users/lio/AppData/Local/Python/bin/icx"
+      - "C:/Users/lio/AppData/Local/Python/bin/clang++.com"
+      - "C:/Users/lio/AppData/Local/Python/bin/clang++.exe"
+      - "C:/Users/lio/AppData/Local/Python/bin/clang++"
+      - "C:/Users/lio/.dotnet/tools/c++.com"
+      - "C:/Users/lio/.dotnet/tools/c++.exe"
+      - "C:/Users/lio/.dotnet/tools/c++"
+      - "C:/Users/lio/.dotnet/tools/g++.com"
+      - "C:/Users/lio/.dotnet/tools/g++.exe"
+      - "C:/Users/lio/.dotnet/tools/g++"
+      - "C:/Users/lio/.dotnet/tools/cl.com"
+      - "C:/Users/lio/.dotnet/tools/cl.exe"
+      - "C:/Users/lio/.dotnet/tools/cl"
+      - "C:/Users/lio/.dotnet/tools/bcc.com"
+      - "C:/Users/lio/.dotnet/tools/bcc.exe"
+      - "C:/Users/lio/.dotnet/tools/bcc"
+      - "C:/Users/lio/.dotnet/tools/icx.com"
+      - "C:/Users/lio/.dotnet/tools/icx.exe"
+      - "C:/Users/lio/.dotnet/tools/icx"
+      - "C:/Users/lio/.dotnet/tools/clang++.com"
+      - "C:/Users/lio/.dotnet/tools/clang++.exe"
+      - "C:/Users/lio/.dotnet/tools/clang++"
+      - "C:/Users/lio/AppData/Roaming/npm/c++.com"
+      - "C:/Users/lio/AppData/Roaming/npm/c++.exe"
+      - "C:/Users/lio/AppData/Roaming/npm/c++"
+      - "C:/Users/lio/AppData/Roaming/npm/g++.com"
+      - "C:/Users/lio/AppData/Roaming/npm/g++.exe"
+      - "C:/Users/lio/AppData/Roaming/npm/g++"
+      - "C:/Users/lio/AppData/Roaming/npm/cl.com"
+      - "C:/Users/lio/AppData/Roaming/npm/cl.exe"
+      - "C:/Users/lio/AppData/Roaming/npm/cl"
+      - "C:/Users/lio/AppData/Roaming/npm/bcc.com"
+      - "C:/Users/lio/AppData/Roaming/npm/bcc.exe"
+      - "C:/Users/lio/AppData/Roaming/npm/bcc"
+      - "C:/Users/lio/AppData/Roaming/npm/icx.com"
+      - "C:/Users/lio/AppData/Roaming/npm/icx.exe"
+      - "C:/Users/lio/AppData/Roaming/npm/icx"
+      - "C:/Users/lio/AppData/Roaming/npm/clang++.com"
+      - "C:/Users/lio/AppData/Roaming/npm/clang++.exe"
+      - "C:/Users/lio/AppData/Roaming/npm/clang++"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/c++.com"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/c++.exe"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/c++"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/g++.com"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/g++.exe"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/g++"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/cl.com"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/cl.exe"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/cl"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/bcc.com"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/bcc.exe"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/bcc"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/icx.com"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/icx.exe"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/icx"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/clang++.com"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/clang++.exe"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/clang++"
+      - "C:/mingw64/bin/c++.com"
+    found: "C:/mingw64/bin/c++.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:501 (find_file)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:538 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/"
+    found: "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: C:/mingw64/bin/c++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+      
+      The CXX compiler identification is GNU, found in:
+        C:/Users/lio/Desktop/MathPaperStudio/build/CMakeFiles/4.4.1/CompilerIdCXX/a.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ar"
+    candidate_directories:
+      - "C:/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+    searched_directories:
+      - "C:/mingw64/bin/ar.com"
+    found: "C:/mingw64/bin/ar.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_RANLIB"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ranlib"
+    candidate_directories:
+      - "C:/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+    searched_directories:
+      - "C:/mingw64/bin/ranlib.com"
+    found: "C:/mingw64/bin/ranlib.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_STRIP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "strip"
+    candidate_directories:
+      - "C:/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+    searched_directories:
+      - "C:/mingw64/bin/strip.com"
+    found: "C:/mingw64/bin/strip.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld"
+    candidate_directories:
+      - "C:/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+    searched_directories:
+      - "C:/mingw64/bin/ld.com"
+    found: "C:/mingw64/bin/ld.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nm"
+    candidate_directories:
+      - "C:/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+    searched_directories:
+      - "C:/mingw64/bin/nm.com"
+    found: "C:/mingw64/bin/nm.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objdump"
+    candidate_directories:
+      - "C:/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+    searched_directories:
+      - "C:/mingw64/bin/objdump.com"
+    found: "C:/mingw64/bin/objdump.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objcopy"
+    candidate_directories:
+      - "C:/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+    searched_directories:
+      - "C:/mingw64/bin/objcopy.com"
+    found: "C:/mingw64/bin/objcopy.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "readelf"
+    candidate_directories:
+      - "C:/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+    searched_directories:
+      - "C:/mingw64/bin/readelf.com"
+    found: "C:/mingw64/bin/readelf.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "dlltool"
+    candidate_directories:
+      - "C:/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+    searched_directories:
+      - "C:/mingw64/bin/dlltool.com"
+    found: "C:/mingw64/bin/dlltool.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "addr2line"
+    candidate_directories:
+      - "C:/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+    searched_directories:
+      - "C:/mingw64/bin/addr2line.com"
+    found: "C:/mingw64/bin/addr2line.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "C:/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+    searched_directories:
+      - "C:/mingw64/bin/tapi.com"
+      - "C:/mingw64/bin/tapi.exe"
+      - "C:/mingw64/bin/tapi"
+      - "C:/Windows/System32/tapi.com"
+      - "C:/Windows/System32/tapi.exe"
+      - "C:/Windows/System32/tapi"
+      - "C:/Windows/tapi.com"
+      - "C:/Windows/tapi.exe"
+      - "C:/Windows/tapi"
+      - "C:/Windows/System32/wbem/tapi.com"
+      - "C:/Windows/System32/wbem/tapi.exe"
+      - "C:/Windows/System32/wbem/tapi"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/tapi.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/tapi.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/tapi"
+      - "C:/Windows/System32/OpenSSH/tapi.com"
+      - "C:/Windows/System32/OpenSSH/tapi.exe"
+      - "C:/Windows/System32/OpenSSH/tapi"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/tapi.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/tapi.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/tapi"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/tapi.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/tapi.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/tapi"
+      - "C:/MYAPP/Git/cmd/tapi.com"
+      - "C:/MYAPP/Git/cmd/tapi.exe"
+      - "C:/MYAPP/Git/cmd/tapi"
+      - "C:/Program Files/dotnet/tapi.com"
+      - "C:/Program Files/dotnet/tapi.exe"
+      - "C:/Program Files/dotnet/tapi"
+      - "C:/Program Files/CMake/bin/tapi.com"
+      - "C:/Program Files/CMake/bin/tapi.exe"
+      - "C:/Program Files/CMake/bin/tapi"
+      - "C:/Program Files/nodejs/tapi.com"
+      - "C:/Program Files/nodejs/tapi.exe"
+      - "C:/Program Files/nodejs/tapi"
+      - "C:/Program Files (x86)/ZeroTier/One/tapi.com"
+      - "C:/Program Files (x86)/ZeroTier/One/tapi.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/tapi"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/tapi.com"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/tapi.exe"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/tapi"
+      - "C:/MYAPP/Microsoft VS Code/bin/tapi.com"
+      - "C:/MYAPP/Microsoft VS Code/bin/tapi.exe"
+      - "C:/MYAPP/Microsoft VS Code/bin/tapi"
+      - "C:/Users/lio/AppData/Local/Python/bin/tapi.com"
+      - "C:/Users/lio/AppData/Local/Python/bin/tapi.exe"
+      - "C:/Users/lio/AppData/Local/Python/bin/tapi"
+      - "C:/Users/lio/.dotnet/tools/tapi.com"
+      - "C:/Users/lio/.dotnet/tools/tapi.exe"
+      - "C:/Users/lio/.dotnet/tools/tapi"
+      - "C:/Users/lio/AppData/Roaming/npm/tapi.com"
+      - "C:/Users/lio/AppData/Roaming/npm/tapi.exe"
+      - "C:/Users/lio/AppData/Roaming/npm/tapi"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/tapi.com"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/tapi.exe"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/tapi"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ar-16.2"
+      - "gcc-ar-16"
+      - "gcc-ar16"
+      - "gcc-ar"
+    candidate_directories:
+      - "C:/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+    searched_directories:
+      - "C:/mingw64/bin/gcc-ar-16.2.com"
+      - "C:/mingw64/bin/gcc-ar-16.2.exe"
+      - "C:/mingw64/bin/gcc-ar-16.2"
+      - "C:/Windows/System32/gcc-ar-16.2.com"
+      - "C:/Windows/System32/gcc-ar-16.2.exe"
+      - "C:/Windows/System32/gcc-ar-16.2"
+      - "C:/Windows/gcc-ar-16.2.com"
+      - "C:/Windows/gcc-ar-16.2.exe"
+      - "C:/Windows/gcc-ar-16.2"
+      - "C:/Windows/System32/wbem/gcc-ar-16.2.com"
+      - "C:/Windows/System32/wbem/gcc-ar-16.2.exe"
+      - "C:/Windows/System32/wbem/gcc-ar-16.2"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-16.2.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-16.2.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-16.2"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-16.2.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-16.2.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-16.2"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ar-16.2.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ar-16.2.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ar-16.2"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-16.2.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-16.2.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-16.2"
+      - "C:/MYAPP/Git/cmd/gcc-ar-16.2.com"
+      - "C:/MYAPP/Git/cmd/gcc-ar-16.2.exe"
+      - "C:/MYAPP/Git/cmd/gcc-ar-16.2"
+      - "C:/Program Files/dotnet/gcc-ar-16.2.com"
+      - "C:/Program Files/dotnet/gcc-ar-16.2.exe"
+      - "C:/Program Files/dotnet/gcc-ar-16.2"
+      - "C:/Program Files/CMake/bin/gcc-ar-16.2.com"
+      - "C:/Program Files/CMake/bin/gcc-ar-16.2.exe"
+      - "C:/Program Files/CMake/bin/gcc-ar-16.2"
+      - "C:/Program Files/nodejs/gcc-ar-16.2.com"
+      - "C:/Program Files/nodejs/gcc-ar-16.2.exe"
+      - "C:/Program Files/nodejs/gcc-ar-16.2"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ar-16.2.com"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ar-16.2.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ar-16.2"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ar-16.2.com"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ar-16.2.exe"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ar-16.2"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ar-16.2.com"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ar-16.2.exe"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ar-16.2"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ar-16.2.com"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ar-16.2.exe"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ar-16.2"
+      - "C:/Users/lio/.dotnet/tools/gcc-ar-16.2.com"
+      - "C:/Users/lio/.dotnet/tools/gcc-ar-16.2.exe"
+      - "C:/Users/lio/.dotnet/tools/gcc-ar-16.2"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ar-16.2.com"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ar-16.2.exe"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ar-16.2"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ar-16.2.com"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ar-16.2.exe"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ar-16.2"
+      - "C:/mingw64/bin/gcc-ar-16.com"
+      - "C:/mingw64/bin/gcc-ar-16.exe"
+      - "C:/mingw64/bin/gcc-ar-16"
+      - "C:/Windows/System32/gcc-ar-16.com"
+      - "C:/Windows/System32/gcc-ar-16.exe"
+      - "C:/Windows/System32/gcc-ar-16"
+      - "C:/Windows/gcc-ar-16.com"
+      - "C:/Windows/gcc-ar-16.exe"
+      - "C:/Windows/gcc-ar-16"
+      - "C:/Windows/System32/wbem/gcc-ar-16.com"
+      - "C:/Windows/System32/wbem/gcc-ar-16.exe"
+      - "C:/Windows/System32/wbem/gcc-ar-16"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-16.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-16.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-16"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-16.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-16.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-16"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ar-16.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ar-16.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ar-16"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-16.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-16.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-16"
+      - "C:/MYAPP/Git/cmd/gcc-ar-16.com"
+      - "C:/MYAPP/Git/cmd/gcc-ar-16.exe"
+      - "C:/MYAPP/Git/cmd/gcc-ar-16"
+      - "C:/Program Files/dotnet/gcc-ar-16.com"
+      - "C:/Program Files/dotnet/gcc-ar-16.exe"
+      - "C:/Program Files/dotnet/gcc-ar-16"
+      - "C:/Program Files/CMake/bin/gcc-ar-16.com"
+      - "C:/Program Files/CMake/bin/gcc-ar-16.exe"
+      - "C:/Program Files/CMake/bin/gcc-ar-16"
+      - "C:/Program Files/nodejs/gcc-ar-16.com"
+      - "C:/Program Files/nodejs/gcc-ar-16.exe"
+      - "C:/Program Files/nodejs/gcc-ar-16"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ar-16.com"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ar-16.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ar-16"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ar-16.com"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ar-16.exe"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ar-16"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ar-16.com"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ar-16.exe"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ar-16"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ar-16.com"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ar-16.exe"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ar-16"
+      - "C:/Users/lio/.dotnet/tools/gcc-ar-16.com"
+      - "C:/Users/lio/.dotnet/tools/gcc-ar-16.exe"
+      - "C:/Users/lio/.dotnet/tools/gcc-ar-16"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ar-16.com"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ar-16.exe"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ar-16"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ar-16.com"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ar-16.exe"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ar-16"
+      - "C:/mingw64/bin/gcc-ar16.com"
+      - "C:/mingw64/bin/gcc-ar16.exe"
+      - "C:/mingw64/bin/gcc-ar16"
+      - "C:/Windows/System32/gcc-ar16.com"
+      - "C:/Windows/System32/gcc-ar16.exe"
+      - "C:/Windows/System32/gcc-ar16"
+      - "C:/Windows/gcc-ar16.com"
+      - "C:/Windows/gcc-ar16.exe"
+      - "C:/Windows/gcc-ar16"
+      - "C:/Windows/System32/wbem/gcc-ar16.com"
+      - "C:/Windows/System32/wbem/gcc-ar16.exe"
+      - "C:/Windows/System32/wbem/gcc-ar16"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar16.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar16.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar16"
+      - "C:/Windows/System32/OpenSSH/gcc-ar16.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ar16.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ar16"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ar16.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ar16.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ar16"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar16.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar16.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar16"
+      - "C:/MYAPP/Git/cmd/gcc-ar16.com"
+      - "C:/MYAPP/Git/cmd/gcc-ar16.exe"
+      - "C:/MYAPP/Git/cmd/gcc-ar16"
+      - "C:/Program Files/dotnet/gcc-ar16.com"
+      - "C:/Program Files/dotnet/gcc-ar16.exe"
+      - "C:/Program Files/dotnet/gcc-ar16"
+      - "C:/Program Files/CMake/bin/gcc-ar16.com"
+      - "C:/Program Files/CMake/bin/gcc-ar16.exe"
+      - "C:/Program Files/CMake/bin/gcc-ar16"
+      - "C:/Program Files/nodejs/gcc-ar16.com"
+      - "C:/Program Files/nodejs/gcc-ar16.exe"
+      - "C:/Program Files/nodejs/gcc-ar16"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ar16.com"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ar16.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ar16"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ar16.com"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ar16.exe"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ar16"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ar16.com"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ar16.exe"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ar16"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ar16.com"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ar16.exe"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ar16"
+      - "C:/Users/lio/.dotnet/tools/gcc-ar16.com"
+      - "C:/Users/lio/.dotnet/tools/gcc-ar16.exe"
+      - "C:/Users/lio/.dotnet/tools/gcc-ar16"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ar16.com"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ar16.exe"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ar16"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ar16.com"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ar16.exe"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ar16"
+      - "C:/mingw64/bin/gcc-ar.com"
+    found: "C:/mingw64/bin/gcc-ar.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ranlib-16.2"
+      - "gcc-ranlib-16"
+      - "gcc-ranlib16"
+      - "gcc-ranlib"
+    candidate_directories:
+      - "C:/mingw64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+    searched_directories:
+      - "C:/mingw64/bin/gcc-ranlib-16.2.com"
+      - "C:/mingw64/bin/gcc-ranlib-16.2.exe"
+      - "C:/mingw64/bin/gcc-ranlib-16.2"
+      - "C:/Windows/System32/gcc-ranlib-16.2.com"
+      - "C:/Windows/System32/gcc-ranlib-16.2.exe"
+      - "C:/Windows/System32/gcc-ranlib-16.2"
+      - "C:/Windows/gcc-ranlib-16.2.com"
+      - "C:/Windows/gcc-ranlib-16.2.exe"
+      - "C:/Windows/gcc-ranlib-16.2"
+      - "C:/Windows/System32/wbem/gcc-ranlib-16.2.com"
+      - "C:/Windows/System32/wbem/gcc-ranlib-16.2.exe"
+      - "C:/Windows/System32/wbem/gcc-ranlib-16.2"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-16.2.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-16.2.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-16.2"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-16.2.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-16.2.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-16.2"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ranlib-16.2.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ranlib-16.2.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ranlib-16.2"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-16.2.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-16.2.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-16.2"
+      - "C:/MYAPP/Git/cmd/gcc-ranlib-16.2.com"
+      - "C:/MYAPP/Git/cmd/gcc-ranlib-16.2.exe"
+      - "C:/MYAPP/Git/cmd/gcc-ranlib-16.2"
+      - "C:/Program Files/dotnet/gcc-ranlib-16.2.com"
+      - "C:/Program Files/dotnet/gcc-ranlib-16.2.exe"
+      - "C:/Program Files/dotnet/gcc-ranlib-16.2"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-16.2.com"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-16.2.exe"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-16.2"
+      - "C:/Program Files/nodejs/gcc-ranlib-16.2.com"
+      - "C:/Program Files/nodejs/gcc-ranlib-16.2.exe"
+      - "C:/Program Files/nodejs/gcc-ranlib-16.2"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ranlib-16.2.com"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ranlib-16.2.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ranlib-16.2"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-16.2.com"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-16.2.exe"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-16.2"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ranlib-16.2.com"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ranlib-16.2.exe"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ranlib-16.2"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ranlib-16.2.com"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ranlib-16.2.exe"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ranlib-16.2"
+      - "C:/Users/lio/.dotnet/tools/gcc-ranlib-16.2.com"
+      - "C:/Users/lio/.dotnet/tools/gcc-ranlib-16.2.exe"
+      - "C:/Users/lio/.dotnet/tools/gcc-ranlib-16.2"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ranlib-16.2.com"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ranlib-16.2.exe"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ranlib-16.2"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ranlib-16.2.com"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ranlib-16.2.exe"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ranlib-16.2"
+      - "C:/mingw64/bin/gcc-ranlib-16.com"
+      - "C:/mingw64/bin/gcc-ranlib-16.exe"
+      - "C:/mingw64/bin/gcc-ranlib-16"
+      - "C:/Windows/System32/gcc-ranlib-16.com"
+      - "C:/Windows/System32/gcc-ranlib-16.exe"
+      - "C:/Windows/System32/gcc-ranlib-16"
+      - "C:/Windows/gcc-ranlib-16.com"
+      - "C:/Windows/gcc-ranlib-16.exe"
+      - "C:/Windows/gcc-ranlib-16"
+      - "C:/Windows/System32/wbem/gcc-ranlib-16.com"
+      - "C:/Windows/System32/wbem/gcc-ranlib-16.exe"
+      - "C:/Windows/System32/wbem/gcc-ranlib-16"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-16.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-16.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-16"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-16.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-16.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-16"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ranlib-16.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ranlib-16.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ranlib-16"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-16.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-16.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-16"
+      - "C:/MYAPP/Git/cmd/gcc-ranlib-16.com"
+      - "C:/MYAPP/Git/cmd/gcc-ranlib-16.exe"
+      - "C:/MYAPP/Git/cmd/gcc-ranlib-16"
+      - "C:/Program Files/dotnet/gcc-ranlib-16.com"
+      - "C:/Program Files/dotnet/gcc-ranlib-16.exe"
+      - "C:/Program Files/dotnet/gcc-ranlib-16"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-16.com"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-16.exe"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-16"
+      - "C:/Program Files/nodejs/gcc-ranlib-16.com"
+      - "C:/Program Files/nodejs/gcc-ranlib-16.exe"
+      - "C:/Program Files/nodejs/gcc-ranlib-16"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ranlib-16.com"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ranlib-16.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ranlib-16"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-16.com"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-16.exe"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-16"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ranlib-16.com"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ranlib-16.exe"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ranlib-16"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ranlib-16.com"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ranlib-16.exe"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ranlib-16"
+      - "C:/Users/lio/.dotnet/tools/gcc-ranlib-16.com"
+      - "C:/Users/lio/.dotnet/tools/gcc-ranlib-16.exe"
+      - "C:/Users/lio/.dotnet/tools/gcc-ranlib-16"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ranlib-16.com"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ranlib-16.exe"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ranlib-16"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ranlib-16.com"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ranlib-16.exe"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ranlib-16"
+      - "C:/mingw64/bin/gcc-ranlib16.com"
+      - "C:/mingw64/bin/gcc-ranlib16.exe"
+      - "C:/mingw64/bin/gcc-ranlib16"
+      - "C:/Windows/System32/gcc-ranlib16.com"
+      - "C:/Windows/System32/gcc-ranlib16.exe"
+      - "C:/Windows/System32/gcc-ranlib16"
+      - "C:/Windows/gcc-ranlib16.com"
+      - "C:/Windows/gcc-ranlib16.exe"
+      - "C:/Windows/gcc-ranlib16"
+      - "C:/Windows/System32/wbem/gcc-ranlib16.com"
+      - "C:/Windows/System32/wbem/gcc-ranlib16.exe"
+      - "C:/Windows/System32/wbem/gcc-ranlib16"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib16.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib16.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib16"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib16.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib16.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib16"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ranlib16.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ranlib16.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/gcc-ranlib16"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib16.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib16.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib16"
+      - "C:/MYAPP/Git/cmd/gcc-ranlib16.com"
+      - "C:/MYAPP/Git/cmd/gcc-ranlib16.exe"
+      - "C:/MYAPP/Git/cmd/gcc-ranlib16"
+      - "C:/Program Files/dotnet/gcc-ranlib16.com"
+      - "C:/Program Files/dotnet/gcc-ranlib16.exe"
+      - "C:/Program Files/dotnet/gcc-ranlib16"
+      - "C:/Program Files/CMake/bin/gcc-ranlib16.com"
+      - "C:/Program Files/CMake/bin/gcc-ranlib16.exe"
+      - "C:/Program Files/CMake/bin/gcc-ranlib16"
+      - "C:/Program Files/nodejs/gcc-ranlib16.com"
+      - "C:/Program Files/nodejs/gcc-ranlib16.exe"
+      - "C:/Program Files/nodejs/gcc-ranlib16"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ranlib16.com"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ranlib16.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/gcc-ranlib16"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ranlib16.com"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ranlib16.exe"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/gcc-ranlib16"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ranlib16.com"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ranlib16.exe"
+      - "C:/MYAPP/Microsoft VS Code/bin/gcc-ranlib16"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ranlib16.com"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ranlib16.exe"
+      - "C:/Users/lio/AppData/Local/Python/bin/gcc-ranlib16"
+      - "C:/Users/lio/.dotnet/tools/gcc-ranlib16.com"
+      - "C:/Users/lio/.dotnet/tools/gcc-ranlib16.exe"
+      - "C:/Users/lio/.dotnet/tools/gcc-ranlib16"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ranlib16.com"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ranlib16.exe"
+      - "C:/Users/lio/AppData/Roaming/npm/gcc-ranlib16"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ranlib16.com"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ranlib16.exe"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/gcc-ranlib16"
+      - "C:/mingw64/bin/gcc-ranlib.com"
+    found: "C:/mingw64/bin/gcc-ranlib.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineRCCompiler.cmake:40 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/Platform/Windows-GNU.cmake:167 (enable_language)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/Platform/Windows-GNU-CXX.cmake:2 (__windows_compiler_gnu)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeCXXInformation.cmake:48 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_RC_COMPILER"
+    description: "RC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "windres"
+      - "windres"
+    candidate_directories:
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/MYAPP/Git/cmd/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/MYAPP/Microsoft VS Code/bin/"
+      - "C:/Users/lio/AppData/Local/Python/bin/"
+      - "C:/Users/lio/.dotnet/tools/"
+      - "C:/Users/lio/AppData/Roaming/npm/"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/"
+      - "C:/mingw64/bin/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/CMake/sbin/"
+      - "C:/Program Files/CMake/"
+      - "C:/Program Files (x86)/MathPaperStudio/bin/"
+      - "C:/Program Files (x86)/MathPaperStudio/sbin/"
+      - "C:/Program Files (x86)/MathPaperStudio/"
+    searched_directories:
+      - "C:/Windows/System32/windres.com"
+      - "C:/Windows/System32/windres.exe"
+      - "C:/Windows/System32/windres"
+      - "C:/Windows/windres.com"
+      - "C:/Windows/windres.exe"
+      - "C:/Windows/windres"
+      - "C:/Windows/System32/wbem/windres.com"
+      - "C:/Windows/System32/wbem/windres.exe"
+      - "C:/Windows/System32/wbem/windres"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/windres.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/windres.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/windres"
+      - "C:/Windows/System32/OpenSSH/windres.com"
+      - "C:/Windows/System32/OpenSSH/windres.exe"
+      - "C:/Windows/System32/OpenSSH/windres"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/windres.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/windres.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/windres"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/windres.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/windres.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/windres"
+      - "C:/MYAPP/Git/cmd/windres.com"
+      - "C:/MYAPP/Git/cmd/windres.exe"
+      - "C:/MYAPP/Git/cmd/windres"
+      - "C:/Program Files/dotnet/windres.com"
+      - "C:/Program Files/dotnet/windres.exe"
+      - "C:/Program Files/dotnet/windres"
+      - "C:/Program Files/CMake/bin/windres.com"
+      - "C:/Program Files/CMake/bin/windres.exe"
+      - "C:/Program Files/CMake/bin/windres"
+      - "C:/Program Files/nodejs/windres.com"
+      - "C:/Program Files/nodejs/windres.exe"
+      - "C:/Program Files/nodejs/windres"
+      - "C:/Program Files (x86)/ZeroTier/One/windres.com"
+      - "C:/Program Files (x86)/ZeroTier/One/windres.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/windres"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/windres.com"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/windres.exe"
+      - "C:/Users/lio/AppData/Local/Microsoft/WindowsApps/windres"
+      - "C:/MYAPP/Microsoft VS Code/bin/windres.com"
+      - "C:/MYAPP/Microsoft VS Code/bin/windres.exe"
+      - "C:/MYAPP/Microsoft VS Code/bin/windres"
+      - "C:/Users/lio/AppData/Local/Python/bin/windres.com"
+      - "C:/Users/lio/AppData/Local/Python/bin/windres.exe"
+      - "C:/Users/lio/AppData/Local/Python/bin/windres"
+      - "C:/Users/lio/.dotnet/tools/windres.com"
+      - "C:/Users/lio/.dotnet/tools/windres.exe"
+      - "C:/Users/lio/.dotnet/tools/windres"
+      - "C:/Users/lio/AppData/Roaming/npm/windres.com"
+      - "C:/Users/lio/AppData/Roaming/npm/windres.exe"
+      - "C:/Users/lio/AppData/Roaming/npm/windres"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/windres.com"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/windres.exe"
+      - "C:/Users/lio/AppData/Local/Programs/DockerDesktop/resources/bin/windres"
+      - "C:/mingw64/bin/windres.com"
+    found: "C:/mingw64/bin/windres.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\MYAPP\\Git\\cmd"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files (x86)\\ZeroTier\\One\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\MYAPP\\Microsoft VS Code\\bin"
+        - "C:\\Users\\lio\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\lio\\.dotnet\\tools"
+        - "C:\\Users\\lio\\AppData\\Roaming\\npm"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\lio\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\mingw64\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/MathPaperStudio"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/MathPaperStudio"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:123 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/lio/Desktop/MathPaperStudio/build/CMakeFiles/CMakeScratch/TryCompile-33y9x8"
+      binary: "C:/Users/lio/Desktop/MathPaperStudio/build/CMakeFiles/CMakeScratch/TryCompile-33y9x8"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: false
+      stdout: |
+        Change Dir: 'C:/Users/lio/Desktop/MathPaperStudio/build/CMakeFiles/CMakeScratch/TryCompile-33y9x8'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/mingw64/bin/mingw32-make.exe -f Makefile cmTC_da8d6/fast
+        C:/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_da8d6.dir\\build.make CMakeFiles/cmTC_da8d6.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/lio/Desktop/MathPaperStudio/build/CMakeFiles/CMakeScratch/TryCompile-33y9x8'
+        Building CXX object CMakeFiles/cmTC_da8d6.dir/CMakeCXXCompilerABI.cpp.obj
+        C:\\mingw64\\bin\\c++.exe   -v -o CMakeFiles\\cmTC_da8d6.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.4\\Modules\\CMakeCXXCompilerABI.cpp"
+        Using built-in specs.
+        COLLECT_GCC=C:\\mingw64\\bin\\c++.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../../../src/gcc-16.2.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-tls --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-mingw-wildcard --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libssp --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev1, Built by MinGW-Builds project' --with-bugurl=https://github.com/niXman/mingw-builds LD_FOR_TARGET=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/bin/ld.exe --with-boot-ldflags='-pipe -fno-ident -L/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/opt/lib -L/c/buildroot/prerequisites/x86_64-zlib-static/lib -L/c/buildroot/prerequisites/x86_64-w64-mingw32-static/lib  -Wl,--disable-dynamicbase -static-libstdc++ -static-libgcc'
+        Thread model: posix
+        Supported LTO compression algorithms: zlib
+        gcc version 16.2.0 (x86_64-posix-seh-rev1, Built by MinGW-Builds project) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_da8d6.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_da8d6.dir\\'
+         C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/cc1plus.exe -quiet -v -iprefix C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/ -D_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.4\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_da8d6.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=core2 -march=nocona -version -o C:\\Users\\lio\\AppData\\Local\\Temp\\ccDK1vKB.s
+        GNU C++20 (x86_64-posix-seh-rev1, Built by MinGW-Builds project) version 16.2.0 (x86_64-w64-mingw32)
+        	compiled by GNU C version 16.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.27-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++"
+        ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/x86_64-w64-mingw32"
+        ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/backward"
+        ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/include"
+        ignoring nonexistent directory "C:/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64D:/a/_temp/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../include"
+        ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed"
+        ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/include"
+        ignoring nonexistent directory "C:/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/mingw/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++
+         C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/x86_64-w64-mingw32
+         C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/backward
+         C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include
+         C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed
+         C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/include
+        End of search list.
+        Compiler executable checksum: 353903603003565cf57eca121ee0183e
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_da8d6.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_da8d6.dir\\'
+         C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_da8d6.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\lio\\AppData\\Local\\Temp\\ccDK1vKB.s
+        GNU assembler version 2.47 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.47.20260726
+        COMPILER_PATH=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/;C:/mingw64/bin/../libexec/gcc/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/
+        LIBRARY_PATH=C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/;C:/mingw64/bin/../lib/gcc/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_da8d6.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_da8d6.dir\\CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_da8d6.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_da8d6.dir\\link.txt --verbose=1
+        Using built-in specs.
+        COLLECT_GCC=C:\\mingw64\\bin\\c++.exe
+        COLLECT_LTO_WRAPPER=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../../../src/gcc-16.2.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-tls --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-mingw-wildcard --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libssp --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev1, Built by MinGW-Builds project' --with-bugurl=https://github.com/niXman/mingw-builds LD_FOR_TARGET=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/bin/ld.exe --with-boot-ldflags='-pipe -fno-ident -L/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/opt/lib -L/c/buildroot/prerequisites/x86_64-zlib-static/lib -L/c/buildroot/prerequisites/x86_64-w64-mingw32-static/lib  -Wl,--disable-dynamicbase -static-libstdc++ -static-libgcc'
+        Thread model: posix
+        Supported LTO compression algorithms: zlib
+        gcc version 16.2.0 (x86_64-posix-seh-rev1, Built by MinGW-Builds project) 
+        COMPILER_PATH=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/;C:/mingw64/bin/../libexec/gcc/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/
+        LIBRARY_PATH=C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/;C:/mingw64/bin/../lib/gcc/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/;C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_da8d6.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'cmTC_da8d6.'
+         C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/collect2.exe -plugin C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll -plugin-opt=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\lio\\AppData\\Local\\Temp\\ccnEDTwS.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=C:/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64 -m i386pep -Bdynamic -o cmTC_da8d6.exe C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0 -LC:/mingw64/bin/../lib/gcc -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_da8d6.dir/objects.a --no-whole-archive --out-implib libcmTC_da8d6.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o
+        collect2 version 16.2.0
+        C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll -plugin-opt=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\lio\\AppData\\Local\\Temp\\ccnEDTwS.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=C:/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64 -m i386pep -Bdynamic -o cmTC_da8d6.exe C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0 -LC:/mingw64/bin/../lib/gcc -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_da8d6.dir/objects.a --no-whole-archive --out-implib libcmTC_da8d6.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o
+        GNU ld (GNU Binutils) 2.47.20260726
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_da8d6.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'cmTC_da8d6.'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_da8d6.dir/objects.a
+        C:\\mingw64\\bin\\ar.exe qc CMakeFiles\\cmTC_da8d6.dir/objects.a @CMakeFiles\\cmTC_da8d6.dir\\objects1.rsp
+        C:\\mingw64\\bin\\c++.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_da8d6.dir/objects.a -Wl,--no-whole-archive -o cmTC_da8d6.exe -Wl,--out-implib,libcmTC_da8d6.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        mingw32-make[1]: Leaving directory 'C:/Users/lio/Desktop/MathPaperStudio/build/CMakeFiles/CMakeScratch/TryCompile-33y9x8'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:255 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++]
+          add: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/x86_64-w64-mingw32]
+          add: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/backward]
+          add: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include]
+          add: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed]
+          add: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/include]
+        end of search list found
+        collapse include dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++]
+        collapse include dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/x86_64-w64-mingw32] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/x86_64-w64-mingw32]
+        collapse include dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/backward] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/backward]
+        collapse include dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include]
+        collapse include dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed]
+        collapse include dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/include] ==> [C:/mingw64/x86_64-w64-mingw32/include]
+        implicit include dirs: [C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++;C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/x86_64-w64-mingw32;C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/backward;C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include;C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed;C:/mingw64/x86_64-w64-mingw32/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:291 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wild|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wild))("|,| |$)]
+        ignore line: [Change Dir: 'C:/Users/lio/Desktop/MathPaperStudio/build/CMakeFiles/CMakeScratch/TryCompile-33y9x8']
+        ignore line: []
+        ignore line: [Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/mingw64/bin/mingw32-make.exe -f Makefile cmTC_da8d6/fast]
+        ignore line: [C:/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_da8d6.dir\\build.make CMakeFiles/cmTC_da8d6.dir/build]
+        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/lio/Desktop/MathPaperStudio/build/CMakeFiles/CMakeScratch/TryCompile-33y9x8']
+        ignore line: [Building CXX object CMakeFiles/cmTC_da8d6.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [C:\\mingw64\\bin\\c++.exe   -v -o CMakeFiles\\cmTC_da8d6.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.4\\Modules\\CMakeCXXCompilerABI.cpp"]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=C:\\mingw64\\bin\\c++.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        link line: [Configured with: ../../../src/gcc-16.2.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-tls --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-mingw-wildcard --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libssp --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev1, Built by MinGW-Builds project' --with-bugurl=https://github.com/niXman/mingw-builds LD_FOR_TARGET=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/bin/ld.exe --with-boot-ldflags='-pipe -fno-ident -L/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/opt/lib -L/c/buildroot/prerequisites/x86_64-zlib-static/lib -L/c/buildroot/prerequisites/x86_64-w64-mingw32-static/lib  -Wl,--disable-dynamicbase -static-libstdc++ -static-libgcc'] ==> linker [Configured with: ../../../src/gcc-16.2.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-tls --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-mingw-wildcard --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libssp --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev1, Built by MinGW-Builds project' --with-bugurl=https://github.com/niXman/mingw-builds LD_FOR_TARGET=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/bin/ld.exe]
+        ignore line: [Configured with: ../../../src/gcc-16.2.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-tls --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-mingw-wildcard --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libssp --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev1, Built by MinGW-Builds project' --with-bugurl=https://github.com/niXman/mingw-builds LD_FOR_TARGET=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/bin/ld.exe --with-boot-ldflags='-pipe -fno-ident -L/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/opt/lib -L/c/buildroot/prerequisites/x86_64-zlib-static/lib -L/c/buildroot/prerequisites/x86_64-w64-mingw32-static/lib  -Wl,--disable-dynamicbase -static-libstdc++ -static-libgcc']
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib]
+        ignore line: [gcc version 16.2.0 (x86_64-posix-seh-rev1  Built by MinGW-Builds project) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_da8d6.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_da8d6.dir\\']
+        ignore line: [ C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/cc1plus.exe -quiet -v -iprefix C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/ -D_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.4\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_da8d6.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=core2 -march=nocona -version -o C:\\Users\\lio\\AppData\\Local\\Temp\\ccDK1vKB.s]
+        ignore line: [GNU C++20 (x86_64-posix-seh-rev1  Built by MinGW-Builds project) version 16.2.0 (x86_64-w64-mingw32)]
+        ignore line: [	compiled by GNU C version 16.2.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.27-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++"]
+        ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/x86_64-w64-mingw32"]
+        ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/backward"]
+        ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/include"]
+        ignore line: [ignoring nonexistent directory "C:/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64D:/a/_temp/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../include"]
+        ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed"]
+        ignore line: [ignoring duplicate directory "C:/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/include"]
+        ignore line: [ignoring nonexistent directory "C:/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/mingw/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++]
+        ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/x86_64-w64-mingw32]
+        ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include/c++/backward]
+        ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include]
+        ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/include-fixed]
+        ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: 353903603003565cf57eca121ee0183e]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_da8d6.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_da8d6.dir\\']
+        ignore line: [ C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_da8d6.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\lio\\AppData\\Local\\Temp\\ccDK1vKB.s]
+        ignore line: [GNU assembler version 2.47 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.47.20260726]
+        ignore line: [COMPILER_PATH=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/]
+        ignore line: [C:/mingw64/bin/../libexec/gcc/]
+        ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/]
+        ignore line: [LIBRARY_PATH=C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/]
+        ignore line: [C:/mingw64/bin/../lib/gcc/]
+        ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/]
+        ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_da8d6.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_da8d6.dir\\CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_da8d6.exe]
+        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_da8d6.dir\\link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=C:\\mingw64\\bin\\c++.exe]
+        ignore line: [COLLECT_LTO_WRAPPER=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        ignore line: [Configured with: ../../../src/gcc-16.2.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-tls --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-mingw-wildcard --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libssp --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev1, Built by MinGW-Builds project' --with-bugurl=https://github.com/niXman/mingw-builds LD_FOR_TARGET=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/bin/ld.exe --with-boot-ldflags='-pipe -fno-ident -L/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/opt/lib -L/c/buildroot/prerequisites/x86_64-zlib-static/lib -L/c/buildroot/prerequisites/x86_64-w64-mingw32-static/lib  -Wl,--disable-dynamicbase -static-libstdc++ -static-libgcc']
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib]
+        ignore line: [gcc version 16.2.0 (x86_64-posix-seh-rev1  Built by MinGW-Builds project) ]
+        ignore line: [COMPILER_PATH=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/]
+        ignore line: [C:/mingw64/bin/../libexec/gcc/]
+        ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/bin/]
+        ignore line: [LIBRARY_PATH=C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/]
+        ignore line: [C:/mingw64/bin/../lib/gcc/]
+        ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib/]
+        ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_da8d6.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona' '-dumpdir' 'cmTC_da8d6.']
+        link line: [ C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/collect2.exe -plugin C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll -plugin-opt=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\lio\\AppData\\Local\\Temp\\ccnEDTwS.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=C:/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64 -m i386pep -Bdynamic -o cmTC_da8d6.exe C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0 -LC:/mingw64/bin/../lib/gcc -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_da8d6.dir/objects.a --no-whole-archive --out-implib libcmTC_da8d6.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o] ==> linker architecture flags [-m;i386pep]
+        link line: [ C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/collect2.exe -plugin C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll -plugin-opt=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\lio\\AppData\\Local\\Temp\\ccnEDTwS.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=C:/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64 -m i386pep -Bdynamic -o cmTC_da8d6.exe C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0 -LC:/mingw64/bin/../lib/gcc -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib -LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_da8d6.dir/objects.a --no-whole-archive --out-implib libcmTC_da8d6.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o]
+          arg [C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/collect2.exe] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/liblto_plugin.dll] ==> ignore
+          arg [-plugin-opt=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/16.2.0/lto-wrapper.exe] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\lio\\AppData\\Local\\Temp\\ccnEDTwS.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+          arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+          arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [-plugin-opt=-pass-through=-liconv] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [--sysroot=C:/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64] ==> ignore
+          arg [-m] ==> ignore
+          arg [i386pep] ==> ignore
+          arg [-Bdynamic] ==> search dynamic
+          arg [-o] ==> ignore
+          arg [cmTC_da8d6.exe] ==> ignore
+          arg [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> obj [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o]
+          arg [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o] ==> obj [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o]
+          arg [-LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0] ==> dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0]
+          arg [-LC:/mingw64/bin/../lib/gcc] ==> dir [C:/mingw64/bin/../lib/gcc]
+          arg [-LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib]
+          arg [-LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib] ==> dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib]
+          arg [-LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib] ==> dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib]
+          arg [-LC:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../..] ==> dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../..]
+          arg [-v] ==> ignore
+          arg [--whole-archive] ==> ignore
+          arg [CMakeFiles\\cmTC_da8d6.dir/objects.a] ==> ignore
+          arg [--no-whole-archive] ==> ignore
+          arg [--out-implib] ==> ignore
+          arg [libcmTC_da8d6.dll.a] ==> ignore
+          arg [--major-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [--minor-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-lpthread] ==> lib [pthread]
+          arg [-ladvapi32] ==> lib [advapi32]
+          arg [-lshell32] ==> lib [shell32]
+          arg [-luser32] ==> lib [user32]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-liconv] ==> lib [iconv]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o] ==> obj [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o]
+        linker tool for 'CXX': ../src/gcc-16.2.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-tls --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-mingw-wildcard --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libssp --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev1, Built by MinGW-Builds project' --with-bugurl=https:/github.com/niXman/mingw-builds LD_FOR_TARGET=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/bin/ld.exe -m;i386pep
+        remove lib [msvcrt]
+        remove lib [msvcrt]
+        collapse obj [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> [C:/mingw64/x86_64-w64-mingw32/lib/crt2.o]
+        collapse obj [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o]
+        collapse obj [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o]
+        collapse library dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0] ==> [C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0]
+        collapse library dir [C:/mingw64/bin/../lib/gcc] ==> [C:/mingw64/lib/gcc]
+        collapse library dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> [C:/mingw64/x86_64-w64-mingw32/lib]
+        collapse library dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../lib] ==> [C:/mingw64/lib]
+        collapse library dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../../../x86_64-w64-mingw32/lib] ==> [C:/mingw64/x86_64-w64-mingw32/lib]
+        collapse library dir [C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.2.0/../../..] ==> [C:/mingw64/lib]
+        implicit libs: [stdc++;mingw32;gcc_s;gcc;mingwex;kernel32;pthread;advapi32;shell32;user32;kernel32;iconv;mingw32;gcc_s;gcc;mingwex;kernel32]
+        implicit objs: [C:/mingw64/x86_64-w64-mingw32/lib/crt2.o;C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/crtbegin.o;C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0/crtend.o]
+        implicit dirs: [C:/mingw64/lib/gcc/x86_64-w64-mingw32/16.2.0;C:/mingw64/lib/gcc;C:/mingw64/x86_64-w64-mingw32/lib;C:/mingw64/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/Internal/CMakeDetermineLinkerId.cmake:41 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:337 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "../src/gcc-16.2.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-tls --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-mingw-wildcard --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libssp --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev1, Built by MinGW-Builds project' --with-bugurl=https:/github.com/niXman/mingw-builds LD_FOR_TARGET=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/bin/ld.exe" "-v"
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/Internal/CMakeDetermineLinkerId.cmake:41 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:337 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "../src/gcc-16.2.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-tls --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-mingw-wildcard --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libssp --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev1, Built by MinGW-Builds project' --with-bugurl=https:/github.com/niXman/mingw-builds LD_FOR_TARGET=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/bin/ld.exe" "-V"
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/Internal/CMakeDetermineLinkerId.cmake:41 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:337 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "../src/gcc-16.2.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64 --enable-host-shared --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-tls --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-mingw-wildcard --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libssp --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev1, Built by MinGW-Builds project' --with-bugurl=https:/github.com/niXman/mingw-builds LD_FOR_TARGET=/c/buildroot/x86_64-1620-posix-seh-ucrt-rt_v14-rev1/mingw64/bin/ld.exe" "--version"
+      
+...

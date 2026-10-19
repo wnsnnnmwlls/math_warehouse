@@ -1,0 +1,1 @@
+ -lgdiplus -lwinhttp -lcrypt32 -lshell32 -lole32 -lcomdlg32 -lcomctl32 -ldwmapi -luxtheme -luuid -lgdi32 -luser32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
