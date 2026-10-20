@@ -141,6 +141,7 @@ private:
     ui::Rect paperNotesFieldRect_{};
     ui::Rect functionFieldRect_{};
     ui::Rect geometryFieldRect_{};
+    ui::Rect geometryCanvasRect_{};
     ui::Rect examChatFieldRect_{};
     ui::Rect examAnswerFieldRect_{};
 
@@ -148,6 +149,11 @@ private:
     std::wstring hoverKey_;
     std::wstring pressedKey_;
     bool trackingMouse_ = false;
+    bool geometryOrbit_ = false;
+    float geometryOrbitYaw_ = 0.58f;
+    float geometryOrbitPitch_ = 0.34f;
+    float geometryOrbitLastX_ = 0.0f;
+    float geometryOrbitLastY_ = 0.0f;
 
     ScrollState bankScroll_;
     ScrollState filterTagScroll_;

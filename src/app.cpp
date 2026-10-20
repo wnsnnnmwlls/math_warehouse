@@ -28,6 +28,7 @@
 #include <uxtheme.h>
 
 #include <algorithm>
+#include <array>
 #include <chrono>
 #include <cmath>
 #include <cstring>
@@ -928,6 +929,17 @@ LRESULT App::HandleMessage(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam
         case WM_MOUSEMOVE: {
             float x = static_cast<float>(GET_X_LPARAM(lParam)) / scale_;
             float y = static_cast<float>(GET_Y_LPARAM(lParam)) / scale_;
+            if (geometryOrbit_) {
+                const float dx = x - geometryOrbitLastX_;
+                const float dy = y - geometryOrbitLastY_;
+                geometryOrbitLastX_ = x;
+                geometryOrbitLastY_ = y;
+                geometryOrbitYaw_ += dx * 0.012f;
+                geometryOrbitPitch_ =
+                    std::clamp(geometryOrbitPitch_ + dy * 0.010f, -1.25f, 1.25f);
+                InvalidateRect(hwnd, nullptr, FALSE);
+                return 0;
+            }
             OnMouseMove(x, y);
             return 0;
         }
@@ -947,6 +959,34 @@ LRESULT App::HandleMessage(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam
             OnMouseUp(x, y);
             return 0;
         }
+        case WM_RBUTTONDOWN: {
+            const float x = static_cast<float>(GET_X_LPARAM(lParam)) / scale_;
+            const float y = static_cast<float>(GET_Y_LPARAM(lParam)) / scale_;
+            if (page_ == Page::Tools && toolsTab_ == 1 && geometrySpec_.ok &&
+                geometrySpec_.kind == "solid" && geometryCanvasRect_.Contains(x, y)) {
+                geometryOrbit_ = true;
+                geometryOrbitLastX_ = x;
+                geometryOrbitLastY_ = y;
+                SetFocus(hwnd);
+                SetCapture(hwnd);
+                return 0;
+            }
+            break;
+        }
+        case WM_RBUTTONUP:
+            if (geometryOrbit_) {
+                geometryOrbit_ = false;
+                ReleaseCapture();
+                InvalidateRect(hwnd, nullptr, FALSE);
+                return 0;
+            }
+            break;
+        case WM_CAPTURECHANGED:
+            if (geometryOrbit_) {
+                geometryOrbit_ = false;
+                InvalidateRect(hwnd, nullptr, FALSE);
+            }
+            break;
         case WM_MOUSEWHEEL: {
             POINT point{GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam)};
             ScreenToClient(hwnd, &point);
@@ -1264,6 +1304,7 @@ void App::LayoutEditControls() {
     const bool showGeometry = page_ == Page::Tools && toolsTab_ == 1;
     if (showGeometry) {
         geometryFieldRect_ = tools.geometryField;
+        geometryCanvasRect_ = tools.geometryCanvas;
         PositionMultilineEdit(geometryEdit_, tools.geometryField, 8.0f);
     }
     setVisible(geometryEdit_, showGeometry);
@@ -1854,7 +1895,7 @@ void App::PaintSidebar(ui::Canvas& canvas, float width, float height) {
     canvas.Text(L"打开数据目录  ↗", ui::Rect{23.0f, height - 82.0f, 170.0f, 24.0f}, 11.5f,
                 col::Accent, true);
     AddHit(folderHit, L"open_data");
-    canvas.Text(L"v1.4.0  ·  C++ / Win32", ui::Rect{23.0f, height - 38.0f, 170.0f, 16.0f}, 9.0f,
+    canvas.Text(L"v1.4.2  ·  C++ / Win32", ui::Rect{23.0f, height - 38.0f, 170.0f, 16.0f}, 9.0f,
                 col::Faint, false);
 }
 
@@ -3992,23 +4033,32 @@ void App::DrawGeometrySketch(ui::Canvas& canvas, const ui::Rect& rect) {
     }
 
     const bool solid = geometrySpec_.kind == "solid";
+    const double yaw = solid ? geometryOrbitYaw_ : 0.0;
+    const double pitch = solid ? geometryOrbitPitch_ : 0.0;
+    const double cosYaw = std::cos(yaw);
+    const double sinYaw = std::sin(yaw);
+    const double cosPitch = std::cos(pitch);
+    const double sinPitch = std::sin(pitch);
     auto project = [&](const GeometryPoint& point) {
-        // A light oblique projection: y is up, z recedes up/right, and the
-        // extra offset separates the back face from the front edges.
-        const double depth = solid ? point.z : 0.0;
-        // In screen coordinates y grows downward. A receding point therefore
-        // moves right and *up*, which keeps the base plane readable instead of
-        // collapsing it onto the front edges.
-        return std::pair<double, double>{point.x + depth * 0.38, point.y + depth * 0.20};
+        const double x = point.x - 0.5;
+        const double y = point.y - 0.5;
+        const double z = (solid ? point.z : 0.5) - 0.5;
+        // Rotate around the vertical y axis, then tilt the camera around x.
+        // z2 is kept as the depth used for painter's-algorithm face ordering.
+        const double x1 = x * cosYaw + z * sinYaw;
+        const double z1 = -x * sinYaw + z * cosYaw;
+        const double y1 = y * cosPitch + z1 * sinPitch;
+        const double z2 = -y * sinPitch + z1 * cosPitch;
+        return std::array<double, 3>{x1, y1, z2};
     };
 
     double minX = 1e100, maxX = -1e100, minY = 1e100, maxY = -1e100;
     for (const auto& point : geometrySpec_.points) {
         auto projected = project(point);
-        minX = std::min(minX, projected.first);
-        maxX = std::max(maxX, projected.first);
-        minY = std::min(minY, projected.second);
-        maxY = std::max(maxY, projected.second);
+        minX = std::min(minX, projected[0]);
+        maxX = std::max(maxX, projected[0]);
+        minY = std::min(minY, projected[1]);
+        maxY = std::max(maxY, projected[1]);
     }
     if (!std::isfinite(minX) || !std::isfinite(maxX)) return;
     const double spanX = std::max(0.001, maxX - minX);
@@ -4023,15 +4073,15 @@ void App::DrawGeometrySketch(ui::Canvas& canvas, const ui::Rect& rect) {
     auto mapPoint = [&](const GeometryPoint& point) {
         auto projected = project(point);
         return Gdiplus::PointF(
-            originX + static_cast<float>(projected.first - minX) * scale,
-            originY + static_cast<float>(maxY - projected.second) * scale);
+            originX + static_cast<float>(projected[0] - minX) * scale,
+            originY + static_cast<float>(maxY - projected[1]) * scale);
     };
 
     std::unordered_map<std::string, Gdiplus::PointF> screenPoints;
     std::unordered_map<std::string, double> depths;
     for (const auto& point : geometrySpec_.points) {
         screenPoints[point.id] = mapPoint(point);
-        depths[point.id] = solid ? point.z : 0.0;
+        depths[point.id] = solid ? project(point)[2] : 0.0;
     }
 
     auto dashedLine = [&](const Gdiplus::PointF& a, const Gdiplus::PointF& b,
@@ -4103,7 +4153,7 @@ void App::DrawGeometrySketch(ui::Canvas& canvas, const ui::Rect& rect) {
 
     for (const auto& point : geometrySpec_.points) {
         auto p = mapPoint(point);
-        const bool back = solid && point.z > 0.6;
+        const bool back = solid && depths[point.id] > 0.0;
         canvas.Circle(p.X, p.Y, back ? 3.0f : 3.6f,
                       back ? Gdiplus::Color(180, 105, 112, 132) : col::Accent);
         canvas.Text(W(point.label.empty() ? point.id : point.label),
@@ -4111,9 +4161,9 @@ void App::DrawGeometrySketch(ui::Canvas& canvas, const ui::Rect& rect) {
     }
 
     if (solid) {
-        canvas.Text(L"斜二测投影 · 虚线为被遮挡棱", ui::Rect{board.x + 12.0f,
-                                                          board.bottom() - 24.0f,
-                                                          board.w - 24.0f, 18.0f},
+        canvas.Text(L"按住右键拖动旋转视角 · 虚线为被遮挡棱", ui::Rect{board.x + 12.0f,
+                                                                  board.bottom() - 24.0f,
+                                                                  board.w - 24.0f, 18.0f},
                     9.0f, col::Faint, false, Gdiplus::StringAlignmentNear);
     }
     canvas.Text(W(geometrySpec_.title), ui::Rect{rect.x + 20.0f, rect.y + 18.0f,
@@ -5479,5 +5529,6 @@ void App::PaintToast(ui::Canvas& canvas, float width, float height) {
     canvas.TextEllipsis(message, ui::Rect{toast.x + 32.0f, toast.y, toast.w - 46.0f, toast.h},
                         12.0f, col::ToastText, false);
 }
+
 
 
