@@ -1,6 +1,6 @@
 # 数研组卷 Mobile
 
-Flutter 版 Android 题库 / 组卷 / Word 导出客户端，当前版本 **v0.6.0**。
+Flutter 版 Android 题库 / 组卷 / Word 导出客户端，当前版本 **v0.7.0**。
 
 桌面版仍为 C++17 + Win32 实现；手机版是同一套题库数据的 Dart/Flutter 重写，不是桌面程序的套壳。
 
@@ -17,12 +17,13 @@ Flutter 版 Android 题库 / 组卷 / Word 导出客户端，当前版本 **v0.6
 - 导出题自动标记“已导出”，进入“最近做过”篮子
 - 31 道几何/统计题的配图已从 `数学精选题.docx` 提取并内置
 - 题目配图支持相册补图/换图，导出 Word 时嵌入图片
+- **函数图像**：支持 `y=x` / `f(x)=x` 写法、隐式乘法、三角函数等，支持中文描述让 AI 生成函数表达式
 
 ## 安装
 
 从 GitHub Releases 下载：
 
-`v0.6.0-mobile` → `数研组卷_Mobile_v0.6.0_arm64.apk`
+`v1.3.0` → `MathPaperStudio-Mobile-v0.7.0-arm64-v1.3.0.apk`
 
 绝大多数安卓手机使用 arm64 包；老 32 位设备使用 armeabi-v7a；不确定架构可用 universal 包。
 

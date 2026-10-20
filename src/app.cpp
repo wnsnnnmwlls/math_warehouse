@@ -476,6 +476,7 @@ struct ToolsRects {
     ui::Rect keyboardButton;
     ui::Rect drawButton;
     ui::Rect aiButton;
+    ui::Rect aiDrawButton;
     ui::Rect plotCard;
     ui::Rect aiCard;
     ui::Rect geometryInputCard;
@@ -500,6 +501,7 @@ ToolsRects ComputeToolsRects(float width, float height) {
         ui::Rect{rects.functionField.right() + 8.0f, top + 32.0f, 88.0f, 40.0f};
     rects.drawButton = ui::Rect{rects.keyboardButton.right() + 8.0f, top + 32.0f, 78.0f, 40.0f};
     rects.aiButton = ui::Rect{rects.drawButton.right() + 8.0f, top + 32.0f, 146.0f, 40.0f};
+    rects.aiDrawButton = ui::Rect{rects.aiButton.right() + 8.0f, top + 32.0f, 112.0f, 40.0f};
     const float contentTop = top + 104.0f;
     const float contentHeight = std::max(220.0f, height - kBottomMargin - contentTop);
     const float plotWidth = std::max(360.0f, frame.w * 0.63f);
@@ -714,6 +716,50 @@ void MergeUniqueTags(std::vector<std::string>& destination,
                                   [&](const std::string& old) { return TagsEqual(old, clean); });
         if (!exists) destination.push_back(clean);
     }
+}
+
+std::string NormalizeFunctionSource(std::string text) {
+    text = util::Trim(text);
+    const std::pair<const char*, const char*> replacements[] = {
+        {"（", "("}, {"）", ")"}, {"＝", "="}, {"＋", "+"}, {"－", "-"},
+        {"²", "^2"}, {"³", "^3"}, {"−", "-"},
+    };
+    for (const auto& item : replacements) {
+        size_t position = 0;
+        while ((position = text.find(item.first, position)) != std::string::npos) {
+            text.replace(position, std::strlen(item.first), item.second);
+            position += std::strlen(item.second);
+        }
+    }
+    text = util::Trim(text);
+    auto skipSpaces = [&](size_t& index) {
+        while (index < text.size() && (text[index] == ' ' || text[index] == '\t')) ++index;
+    };
+    size_t index = 0;
+    skipSpaces(index);
+    if (index < text.size() && (text[index] == 'y' || text[index] == 'Y')) {
+        size_t cursor = index + 1;
+        skipSpaces(cursor);
+        if (cursor < text.size() && text[cursor] == '=') {
+            text = util::Trim(text.substr(cursor + 1));
+            index = 0;
+        }
+    }
+    if (index < text.size() && (text[index] == 'f' || text[index] == 'F')) {
+        size_t cursor = index + 1;
+        skipSpaces(cursor);
+        if (cursor < text.size() && text[cursor] == '(') {
+            size_t close = text.find(')', cursor + 1);
+            if (close != std::string::npos) {
+                size_t equal = close + 1;
+                skipSpaces(equal);
+                if (equal < text.size() && text[equal] == '=') {
+                    text = util::Trim(text.substr(equal + 1));
+                }
+            }
+        }
+    }
+    return text;
 }
 
 }  // namespace
@@ -1808,7 +1854,7 @@ void App::PaintSidebar(ui::Canvas& canvas, float width, float height) {
     canvas.Text(L"打开数据目录  ↗", ui::Rect{23.0f, height - 82.0f, 170.0f, 24.0f}, 11.5f,
                 col::Accent, true);
     AddHit(folderHit, L"open_data");
-    canvas.Text(L"v1.2.1  ·  C++ / Win32", ui::Rect{23.0f, height - 38.0f, 170.0f, 16.0f}, 9.0f,
+    canvas.Text(L"v1.3.0  ·  C++ / Win32", ui::Rect{23.0f, height - 38.0f, 170.0f, 16.0f}, 9.0f,
                 col::Faint, false);
 }
 
@@ -3545,10 +3591,12 @@ void App::PaintExamResult(ui::Canvas& canvas, float width, float height) {
 }
 
 void App::ParseFunction() {
-    functionSource_ = GetControlText(functionEdit_);
+    const std::string normalized = NormalizeFunctionSource(util::ToUtf8(GetControlText(functionEdit_)));
+    functionSource_ = W(normalized);
+    SetControlText(functionEdit_, functionSource_);
     std::string error;
     mathexpr::Expression expression;
-    if (!expression.Parse(util::ToUtf8(functionSource_), &error)) {
+    if (!expression.Parse(normalized, &error)) {
         functionError_ = W(error);
         functionRoots_.clear();
         return;
@@ -3560,6 +3608,7 @@ void App::ParseFunction() {
 
 void App::StartFunctionExplanation() {
     if (functionAiRunning_ || geometryAiRunning_) return;
+    functionAiMode_ = 0;
     ParseFunction();
     if (!functionError_.empty()) {
         ShowToast(L"请先修正函数表达式。", true);
@@ -3588,6 +3637,41 @@ void App::StartFunctionExplanation() {
         AiChatResult result = AskAiChat(
             settings, "你是一名高中数学教师，擅长把函数图像和代数性质联系起来。",
             prompt, 1600, 120000);
+        auto* update = new ToolAiUpdate{0, result.ok, result.text, result.error};
+        if (!PostMessageW(target, kMsgToolFinished, 0, reinterpret_cast<LPARAM>(update))) {
+            delete update;
+        }
+    });
+}
+
+void App::StartFunctionAiDraw() {
+    if (functionAiRunning_ || geometryAiRunning_) return;
+    std::wstring description = GetControlText(functionEdit_);
+    if (util::Trim(description).empty()) {
+        ShowToast(L"请先输入函数描述，例如：开口向上、顶点在 (1,-2) 的二次函数。", true);
+        return;
+    }
+    Settings settings = store_.Config();
+    if (util::Trim(settings.model).empty()) {
+        ShowToast(L"请先在 AI 接口中配置模型。", true);
+        return;
+    }
+    std::string prompt =
+        "请把下面的自然语言函数描述转换成一条可绘制的单变量函数 y=f(x)。\n"
+        "只输出 JSON，不要 Markdown：{\"expression\":\"...\",\"note\":\"一句中文说明\"}\n"
+        "expression 只能使用变量 x、数字、+ - * / ^、括号，以及 sin cos tan asin acos atan "
+        "sqrt abs log ln exp floor ceil 等函数和 pi、e 常量；不要写 y= 或 f(x)=。\n"
+        "如果描述本身已经是表达式，就原样返回该表达式。\n"
+        "描述：\n" + util::ToUtf8(description);
+    functionAiMode_ = 1;
+    functionAiRunning_ = true;
+    functionAiText_.clear();
+    InvalidateRect(hwnd_, nullptr, FALSE);
+    HWND target = hwnd_;
+    toolThread_ = std::thread([target, settings, prompt]() {
+        AiChatResult result = AskAiChat(
+            settings, "你是一名数学函数绘图助手，只负责把描述转成单变量函数表达式。",
+            prompt, 500, 120000);
         auto* update = new ToolAiUpdate{0, result.ok, result.text, result.error};
         if (!PostMessageW(target, kMsgToolFinished, 0, reinterpret_cast<LPARAM>(update))) {
             delete update;
@@ -3644,7 +3728,39 @@ void App::HandleToolFinished(WPARAM wParam, LPARAM lParam) {
     if (!update) return;
     if (update->kind == 0) {
         functionAiRunning_ = false;
-        if (update->ok) {
+        if (functionAiMode_ == 1) {
+            functionAiMode_ = 0;
+            if (!update->ok) {
+                functionAiText_ = L"AI 画图失败：" + W(update->error);
+            } else {
+                std::string text = util::Trim(update->text);
+                const size_t first = text.find('{');
+                const size_t last = text.rfind('}');
+                std::string expression;
+                std::string note;
+                if (first != std::string::npos && last != std::string::npos && last > first) {
+                    jsonx::Value root = jsonx::Value::Parse(text.substr(first, last - first + 1));
+                    if (root.IsObject()) {
+                        expression = util::Trim(root["expression"].AsString());
+                        note = util::Trim(root["note"].AsString());
+                    }
+                }
+                if (expression.empty()) expression = text;
+                expression = NormalizeFunctionSource(expression);
+                if (expression.empty()) {
+                    functionAiText_ = L"AI 没有返回可用的函数表达式，请换一种描述。";
+                } else {
+                    SetControlText(functionEdit_, W(expression));
+                    ParseFunction();
+                    functionAiText_ = note.empty()
+                                          ? L"已根据描述生成函数，可继续点击“AI 分析性质”。"
+                                          : L"AI：" + W(note);
+                    if (!functionError_.empty()) {
+                        functionAiText_ = L"AI 返回的表达式无法解析：" + functionError_;
+                    }
+                }
+            }
+        } else if (update->ok) {
             functionAiText_ = W(NormalizeMathText(update->text));
         } else {
             functionAiText_ = L"AI 分析失败：" + W(update->error);
@@ -3884,8 +4000,12 @@ void App::PaintFunctionTools(ui::Canvas& canvas, float width, float height) {
     canvas.FillRect(rects.inputCard, col::Card, 14.0f);
     canvas.StrokeRect(rects.inputCard, col::Border, 14.0f, 1.0f);
     canvas.Text(L"函数图像", ui::Rect{rects.inputCard.x + 20.0f, rects.inputCard.y + 8.0f,
-                                       160.0f, 20.0f},
+                                       100.0f, 20.0f},
                 11.0f, col::InkSoft, true);
+    canvas.Text(L"只填等号右边（x 的表达式），也支持 y= / f(x)=；中文描述可点 AI 画图",
+                ui::Rect{rects.inputCard.x + 122.0f, rects.inputCard.y + 8.0f,
+                         rects.inputCard.w - 142.0f, 20.0f},
+                9.4f, col::Faint, false);
     DrawFieldBackground(canvas, rects.functionField, functionEdit_);
     AddHit(ui::Rect{rects.functionField.x, rects.functionField.y, rects.functionField.w,
                     rects.functionField.h},
@@ -3895,6 +4015,9 @@ void App::PaintFunctionTools(ui::Canvas& canvas, float width, float height) {
     DrawButton(canvas, rects.aiButton, functionAiRunning_ ? L"AI 分析中…" : L"AI 分析性质",
                L"tools_ai", L"", functionAiRunning_ ? 2 : 5,
                !functionAiRunning_ && !geometryAiRunning_, 11.0f);
+    DrawButton(canvas, rects.aiDrawButton,
+               functionAiRunning_ ? L"AI 生成中…" : L"AI 画图", L"tools_ai_draw", L"",
+               functionAiRunning_ ? 2 : 0, !functionAiRunning_ && !geometryAiRunning_, 11.0f);
 
     canvas.DrawShadow(rects.plotCard, 14.0f);
     canvas.FillRect(rects.plotCard, col::Card, 14.0f);
@@ -4304,6 +4427,10 @@ void App::Activate(const HitTarget& target) {
     }
     if (action == L"tools_ai") {
         StartFunctionExplanation();
+        return;
+    }
+    if (action == L"tools_ai_draw") {
+        StartFunctionAiDraw();
         return;
     }
     if (action == L"tools_keyboard") {

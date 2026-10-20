@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'ai/ai_settings_page.dart';
 import 'data/question_store.dart';
+import 'math/function_graph_page.dart';
 import 'models/question.dart';
 import 'paper/manual_paper_page.dart';
 import 'paper/paper_page.dart';
@@ -1388,6 +1389,16 @@ class SettingsPage extends StatelessWidget {
             child: Column(
               children: [
                 ListTile(
+                  leading: const Icon(Icons.functions),
+                  title: const Text('函数图像 / AI 画图'),
+                  subtitle: const Text('输入表达式或中文描述，生成函数图像'),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const FunctionGraphPage()),
+                  ),
+                ),
+                const Divider(height: 1),
+                ListTile(
                   leading: const Icon(Icons.auto_awesome_outlined),
                   title: const Text('AI 供应商配置'),
                   subtitle: const Text('API 地址、模型、密钥与连接测试'),
@@ -1414,7 +1425,7 @@ class SettingsPage extends StatelessWidget {
           const SizedBox(height: 16),
           Center(
             child: Text(
-              '数研组卷 Mobile · 0.6.0',
+              '数研组卷 Mobile · 0.7.0',
               style: TextStyle(fontSize: 11, color: Theme.of(context).colorScheme.outline),
             ),
           ),

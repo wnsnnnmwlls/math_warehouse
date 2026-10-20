@@ -7,6 +7,7 @@ import '../ai/ai_client.dart';
 import '../ai/ai_config.dart';
 import '../ai/ai_settings_page.dart';
 import '../data/question_store.dart';
+import '../math/function_graph_page.dart';
 import '../models/question.dart';
 import 'manual_paper_page.dart';
 import 'paper_docx.dart';
@@ -53,7 +54,18 @@ class _PaperPageState extends State<PaperPage> {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     return Scaffold(
-      appBar: AppBar(title: const Text('AI 组卷')),
+      appBar: AppBar(
+        title: const Text('AI 组卷'),
+        actions: [
+          IconButton(
+            tooltip: '函数图像',
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const FunctionGraphPage()),
+            ),
+            icon: const Icon(Icons.functions),
+          ),
+        ],
+      ),
       body: ListView(
         controller: _scroll,
         padding: const EdgeInsets.fromLTRB(16, 4, 16, 30),

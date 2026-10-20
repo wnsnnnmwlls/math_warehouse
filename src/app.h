@@ -216,6 +216,7 @@ private:
     std::wstring functionError_;
     std::wstring functionAiText_;
     bool functionAiRunning_ = false;
+    int functionAiMode_ = 0;  // 0 = explain, 1 = natural language to expression
     std::wstring geometryPrompt_;
     GeometrySpec geometrySpec_;
     std::wstring geometryAiText_;
@@ -320,6 +321,7 @@ private:
     void HandleExamFinished(WPARAM wParam, LPARAM lParam);
     void ParseFunction();
     void StartFunctionExplanation();
+    void StartFunctionAiDraw();
     void GenerateGeometrySketch();
     void HandleToolFinished(WPARAM wParam, LPARAM lParam);
     void StartConnectionTest();
