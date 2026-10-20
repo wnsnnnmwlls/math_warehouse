@@ -79,6 +79,7 @@ public:
     void StrokeRect(const Rect& rect, const Gdiplus::Color& color, float radius = 0.0f,
                     float width = 1.0f);
     void DrawShadow(const Rect& rect, float radius = 0.0f);
+    void DrawImage(Gdiplus::Image* image, const Rect& rect, bool contain = true);
     void Line(float x1, float y1, float x2, float y2, const Gdiplus::Color& color,
               float width = 1.0f);
     void Text(const std::wstring& text, const Rect& rect, float pixels, const Gdiplus::Color& color,

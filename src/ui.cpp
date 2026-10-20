@@ -143,6 +143,26 @@ void Canvas::StrokeRect(const Rect& rect, const Gdiplus::Color& color, float rad
     }
 }
 
+void Canvas::DrawImage(Gdiplus::Image* image, const Rect& rect, bool contain) {
+    if (!image || image->GetLastStatus() != Gdiplus::Ok || rect.w <= 0.0f || rect.h <= 0.0f) {
+        return;
+    }
+    const float sourceW = static_cast<float>(image->GetWidth());
+    const float sourceH = static_cast<float>(image->GetHeight());
+    if (sourceW <= 0.0f || sourceH <= 0.0f) return;
+    const Gdiplus::RectF target = Px(rect);
+    float drawW = target.Width;
+    float drawH = target.Height;
+    if (contain) {
+        const float factor = std::min(target.Width / sourceW, target.Height / sourceH);
+        drawW = sourceW * factor;
+        drawH = sourceH * factor;
+    }
+    const Gdiplus::RectF destination(target.X + (target.Width - drawW) * 0.5f,
+                                     target.Y + (target.Height - drawH) * 0.5f, drawW, drawH);
+    graphics_.DrawImage(image, destination, 0.0f, 0.0f, sourceW, sourceH, Gdiplus::UnitPixel);
+}
+
 void Canvas::DrawShadow(const Rect& rect, float radius) {
     for (int i = 3; i >= 1; --i) {
         Rect shadow = rect.Offset(0.0f, static_cast<float>(i) * 1.4f);

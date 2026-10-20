@@ -1808,7 +1808,7 @@ void App::PaintSidebar(ui::Canvas& canvas, float width, float height) {
     canvas.Text(L"打开数据目录  ↗", ui::Rect{23.0f, height - 82.0f, 170.0f, 24.0f}, 11.5f,
                 col::Accent, true);
     AddHit(folderHit, L"open_data");
-    canvas.Text(L"v1.0  ·  C++ / Win32", ui::Rect{23.0f, height - 38.0f, 170.0f, 16.0f}, 9.0f,
+    canvas.Text(L"v1.2  ·  C++ / Win32", ui::Rect{23.0f, height - 38.0f, 170.0f, 16.0f}, 9.0f,
                 col::Faint, false);
 }
 
@@ -2486,6 +2486,20 @@ void App::DrawQuestionRow(ui::Canvas& canvas, const Question& question, const ui
     canvas.Text(gradeText, ui::Rect{topX, rect.y + 14.0f, gradeWidth, 22.0f}, 10.0f,
                 hasGrade ? col::Green : col::Faint, hasGrade,
                 Gdiplus::StringAlignmentCenter);
+    topX += gradeWidth + 6.0f;
+    if (QuestionHasImage(question)) {
+        const std::wstring figure = L"配图";
+        float width = canvas.Measure(figure, 10.0f, true, false).Width + 18.0f;
+        canvas.FillRect(ui::Rect{topX, rect.y + 14.0f, width, 22.0f}, col::GreenSoft, 11.0f);
+        canvas.Text(figure, ui::Rect{topX, rect.y + 14.0f, width, 22.0f}, 10.0f, col::Green,
+                    true, Gdiplus::StringAlignmentCenter);
+    } else if (QuestionNeedsFigure(question)) {
+        const std::wstring figure = L"缺图";
+        float width = canvas.Measure(figure, 10.0f, true, false).Width + 18.0f;
+        canvas.FillRect(ui::Rect{topX, rect.y + 14.0f, width, 22.0f}, col::RedSoft, 11.0f);
+        canvas.Text(figure, ui::Rect{topX, rect.y + 14.0f, width, 22.0f}, 10.0f, col::Red,
+                    true, Gdiplus::StringAlignmentCenter);
+    }
 
     ui::Rect editButton{rect.right() - 64.0f, rect.y + 12.0f, 46.0f, 26.0f};
     ui::Rect starButton{editButton.x - 32.0f, rect.y + 12.0f, 26.0f, 26.0f};

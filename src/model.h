@@ -25,6 +25,7 @@ struct Question {
     std::vector<std::string> concepts;
     bool tagged = false;
     std::string created;
+    std::string imageBase64;
 
     bool HasTag(const std::string& tag) const;
     bool HasAnyTag() const;
@@ -83,6 +84,8 @@ bool ParseQuestionType(const std::string& text, QuestionType& type);
 bool ParseGrade(const std::string& text, Grade& grade);
 Grade InferGrade(const Question& question);
 int PointsForType(QuestionType type);
+bool QuestionHasImage(const Question& question);
+bool QuestionNeedsFigure(const Question& question);
 
 std::string TagKey(const std::string& tag);
 bool TagsEqual(const std::string& a, const std::string& b);

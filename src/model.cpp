@@ -91,6 +91,9 @@ jsonx::Value Question::ToJson() const {
     value.Set("concepts", StringArray(concepts));
     value.Set("tagged", tagged);
     value.Set("created", created);
+    if (!imageBase64.empty()) {
+        value.Set("image_base64", imageBase64);
+    }
     return value;
 }
 
@@ -124,6 +127,13 @@ Question Question::FromJson(const jsonx::Value& value) {
     question.created = value["created"].AsString();
     if (question.created.empty()) {
         question.created = util::NowIso8601();
+    }
+    question.imageBase64 = value["image_base64"].AsString();
+    if (question.imageBase64.empty()) question.imageBase64 = value["imageBase64"].AsString();
+    if (question.imageBase64.empty()) question.imageBase64 = value["image"].AsString();
+    const size_t dataMarker = question.imageBase64.find("base64,");
+    if (dataMarker != std::string::npos) {
+        question.imageBase64.erase(0, dataMarker + 7);
     }
     while (question.type == QuestionType::Choice && question.options.size() < 4) {
         question.options.emplace_back();
@@ -439,4 +449,21 @@ int PointsForType(QuestionType type) {
         case QuestionType::Solution: return 12;
     }
     return 5;
+}
+
+bool QuestionHasImage(const Question& question) {
+    return !util::Trim(question.imageBase64).empty();
+}
+
+bool QuestionNeedsFigure(const Question& question) {
+    if (QuestionHasImage(question)) return false;
+    std::string text = question.stem + "\n" + question.analysis + "\n";
+    for (const auto& option : question.options) {
+        text += option;
+        text += "\n";
+    }
+    return text.find("如图") != std::string::npos ||
+           text.find("下图") != std::string::npos ||
+           text.find("图中") != std::string::npos ||
+           text.find("图示") != std::string::npos;
 }

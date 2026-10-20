@@ -39,6 +39,11 @@ mobile/assets/figures/
 
 ## 桌面版说明
 
-当前桌面版（C++/Win32）的数据模型还没有 `image_base64` 字段，因此桌面端暂不显示这些配图；`data/figures` 和 `data/figure_map.json` 已放入仓库，供手机版及后续桌面版升级使用。
+桌面版 v1.2 已支持题目配图：
+
+- `data/questions.json` 中 31 道题已直接写入 `image_base64`，无需额外迁移
+- 编辑器右侧显示配图预览，可选择/更换/清除图片
+- 题库列表显示“配图/缺图”标记
+- 导出 Word 时自动嵌入配图；缺图题会在试卷中明确写出“配图缺失”
 
 手机版会在首次启动/升级时自动把 `mobile/assets/figures` 写入应用私有 `questions.json`，并写入 `figures_seeded` 标记，避免覆盖用户自己补的图或重复回填。

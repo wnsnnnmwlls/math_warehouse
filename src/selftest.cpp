@@ -173,6 +173,24 @@ int main() {
     Check(result.totalPoints == maxPoints, "DOCX score total matches");
     Check(result.questionCount == static_cast<int>(questions.size()), "DOCX question count matches");
 
+    std::string figureBytes;
+    std::string figureError;
+    const std::filesystem::path figurePath =
+        std::filesystem::current_path() / "data" / "figures" / "fig_32_parabola.png";
+    if (util::ReadFileBytes(figurePath, figureBytes, &figureError) && !figureBytes.empty()) {
+        std::vector<unsigned char> figureData(figureBytes.begin(), figureBytes.end());
+        questions[0].imageBase64 = util::Base64Encode(figureData);
+        options.title = "2026 届高三数学模拟试卷（配图）";
+        auto imageResult = GenerateExamDocx(questions, options, outputDir / "示例试卷_配图.docx");
+        Check(imageResult.ok, "DOCX with figure generated: " + imageResult.error);
+        std::string docxBytes;
+        std::string readError;
+        Check(util::ReadFileBytes(outputDir / "示例试卷_配图.docx", docxBytes, &readError),
+              "DOCX with figure readable: " + readError);
+        Check(docxBytes.find("word/media/") != std::string::npos,
+              "DOCX contains embedded question figure");
+    }
+
     if (gdiplusReady) {
         std::filesystem::create_directories(std::filesystem::current_path() / "build");
         std::filesystem::path imagePath =

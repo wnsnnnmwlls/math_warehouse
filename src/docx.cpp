@@ -10,13 +10,18 @@
 #endif
 
 #include <windows.h>
+#include <objidl.h>
+#include <gdiplus.h>
 
 #include <algorithm>
 #include <array>
+#include <cmath>
 #include <cstdint>
 #include <ctime>
+#include <memory>
 #include <sstream>
 #include <string>
+#include <unordered_map>
 #include <utility>
 #include <vector>
 
@@ -71,6 +76,15 @@ struct PaperModel {
     int totalPoints = 0;
     int questionCount = 0;
     int duration = 120;
+};
+
+struct DocxImage {
+    std::string fileName;
+    std::string contentType;
+    std::string bytes;
+    std::string relationshipId;
+    int widthEmu = 0;
+    int heightEmu = 0;
 };
 
 std::string XmlEscape(const std::string& text) {
@@ -211,6 +225,90 @@ std::string EmptyParagraph(const ParaStyle& style) {
     return Paragraph({}, style);
 }
 
+std::string ImageParagraph(const DocxImage& image, int index) {
+    const std::string id = std::to_string(index);
+    return "<w:p><w:pPr><w:jc w:val=\"center\"/><w:spacing w:before=\"80\" w:after=\"100\"/>"
+           "</w:pPr><w:r><w:drawing><wp:inline distT=\"0\" distB=\"0\" distL=\"0\" distR=\"0\">"
+           "<wp:extent cx=\"" + Int(image.widthEmu) + "\" cy=\"" + Int(image.heightEmu) + "\"/>"
+           "<wp:docPr id=\"" + id + "\" name=\"Picture " + id + "\" descr=\"题目配图\"/>"
+           "<a:graphic><a:graphicData uri=\"http://schemas.openxmlformats.org/drawingml/2006/picture\">"
+           "<pic:pic><pic:nvPicPr><pic:cNvPr id=\"" + id + "\" name=\"" +
+           XmlEscape(image.fileName) + "\"/><pic:cNvPicPr/></pic:nvPicPr>"
+           "<pic:blipFill><a:blip r:embed=\"" + image.relationshipId +
+           "\"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill>"
+           "<pic:spPr><a:xfrm><a:off x=\"0\" y=\"0\"/><a:ext cx=\"" +
+           Int(image.widthEmu) + "\" cy=\"" + Int(image.heightEmu) +
+           "\"/></a:xfrm><a:prstGeom prst=\"rect\"><a:avLst/></a:prstGeom></pic:spPr>"
+           "</pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>";
+}
+
+bool ImageDimensions(const std::string& bytes, int& width, int& height) {
+    if (bytes.size() < 8) return false;
+    IStream* stream = nullptr;
+    if (FAILED(CreateStreamOnHGlobal(nullptr, TRUE, &stream)) || !stream) return false;
+    ULONG written = 0;
+    if (FAILED(stream->Write(bytes.data(), static_cast<ULONG>(bytes.size()), &written)) ||
+        written != bytes.size()) {
+        stream->Release();
+        return false;
+    }
+    LARGE_INTEGER zero{};
+    stream->Seek(zero, STREAM_SEEK_SET, nullptr);
+    bool ok = false;
+    {
+        Gdiplus::Image image(stream, TRUE);
+        if (image.GetLastStatus() == Gdiplus::Ok && image.GetWidth() > 0 &&
+            image.GetHeight() > 0) {
+            width = static_cast<int>(image.GetWidth());
+            height = static_cast<int>(image.GetHeight());
+            ok = true;
+        }
+    }
+    stream->Release();
+    return ok;
+}
+
+void PrepareQuestionImages(const std::vector<Question>& questions,
+                           std::unordered_map<std::string, DocxImage>& images) {
+    int nextId = 4;
+    for (const auto& question : questions) {
+        if (question.imageBase64.empty() || images.find(question.id) != images.end()) continue;
+        const std::vector<unsigned char> decoded = util::Base64Decode(question.imageBase64);
+        if (decoded.size() < 8) continue;
+        std::string extension;
+        std::string contentType;
+        if (decoded[0] == 0x89 && decoded[1] == 0x50 && decoded[2] == 0x4E &&
+            decoded[3] == 0x47) {
+            extension = "png";
+            contentType = "image/png";
+        } else if (decoded[0] == 0xFF && decoded[1] == 0xD8) {
+            extension = "jpeg";
+            contentType = "image/jpeg";
+        } else {
+            continue;
+        }
+        const std::string bytes(decoded.begin(), decoded.end());
+        int pixelWidth = 0;
+        int pixelHeight = 0;
+        if (!ImageDimensions(bytes, pixelWidth, pixelHeight)) continue;
+        const double naturalWidth = pixelWidth * 9525.0;
+        const double naturalHeight = pixelHeight * 9525.0;
+        const double maxWidth = 5000000.0;
+        const double maxHeight = 3400000.0;
+        const double factor =
+            std::min(1.0, std::min(maxWidth / naturalWidth, maxHeight / naturalHeight));
+        DocxImage image;
+        image.fileName = "image" + std::to_string(nextId) + "." + extension;
+        image.contentType = contentType;
+        image.bytes = bytes;
+        image.relationshipId = "rIdImage" + std::to_string(nextId);
+        image.widthEmu = static_cast<int>(std::lround(naturalWidth * factor));
+        image.heightEmu = static_cast<int>(std::lround(naturalHeight * factor));
+        images[question.id] = std::move(image);
+        ++nextId;
+    }
+}
+
 std::string OptionsBlock(const Question& question) {
     if (question.options.empty()) return {};
     RunStyle optionStyle;
@@ -313,7 +411,8 @@ PaperModel PreparePaper(const std::vector<Question>& questions, const PaperOptio
     return model;
 }
 
-std::string BuildDocument(const PaperOptions& options, PaperModel& model) {
+std::string BuildDocument(const PaperOptions& options, PaperModel& model,
+                          const std::unordered_map<std::string, DocxImage>& images) {
     std::string body;
     RunStyle titleStyle;
     titleStyle.eastAsia = "黑体";
@@ -406,6 +505,20 @@ std::string BuildDocument(const PaperOptions& options, PaperModel& model) {
             runs += MakeRun(question.stem, bodyStyle);
             body += Paragraph(runs, questionPara);
 
+            auto image = images.find(question.id);
+            if (image != images.end()) {
+                body += ImageParagraph(image->second, placed.number);
+            } else if (QuestionNeedsFigure(question)) {
+                RunStyle missingStyle;
+                missingStyle.halfPoints = 19;
+                missingStyle.color = "B23A48";
+                ParaStyle missingPara;
+                missingPara.align = "center";
+                missingPara.after = 90;
+                body += TextParagraph("【配图缺失：原题提到“如图”，题库中未收录配图】",
+                                      missingStyle, missingPara);
+            }
+
             if (group.type == QuestionType::Choice) {
                 body += OptionsBlock(question);
             }
@@ -483,7 +596,10 @@ std::string BuildDocument(const PaperOptions& options, PaperModel& model) {
     document += "<w:document "
                 "xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" "
                 "xmlns:r=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\" "
-                "xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\">";
+                "xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" "
+                "xmlns:wp=\"http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing\" "
+                "xmlns:a=\"http://schemas.openxmlformats.org/drawingml/2006/main\" "
+                "xmlns:pic=\"http://schemas.openxmlformats.org/drawingml/2006/picture\">";
     document += "<w:body>" + body + sectPr + "</w:body></w:document>";
     return document;
 }
@@ -518,6 +634,8 @@ std::string ContentTypesXml() {
            "<Types xmlns=\"http://schemas.openxmlformats.org/package/2006/content-types\">"
            "<Default Extension=\"rels\" ContentType=\"application/vnd.openxmlformats-package.relationships+xml\"/>"
            "<Default Extension=\"xml\" ContentType=\"application/xml\"/>"
+           "<Default Extension=\"png\" ContentType=\"image/png\"/>"
+           "<Default Extension=\"jpeg\" ContentType=\"image/jpeg\"/>"
            "<Override PartName=\"/word/document.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml\"/>"
            "<Override PartName=\"/word/styles.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml\"/>"
            "<Override PartName=\"/word/settings.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml\"/>"
@@ -536,13 +654,20 @@ std::string RootRelsXml() {
            "</Relationships>";
 }
 
-std::string DocumentRelsXml() {
-    return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-           "<Relationships xmlns=\"http://schemas.openxmlformats.org/package/2006/relationships\">"
-           "<Relationship Id=\"rId1\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles\" Target=\"styles.xml\"/>"
-           "<Relationship Id=\"rId2\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings\" Target=\"settings.xml\"/>"
-           "<Relationship Id=\"rId3\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer\" Target=\"footer1.xml\"/>"
-           "</Relationships>";
+std::string DocumentRelsXml(const std::unordered_map<std::string, DocxImage>& images) {
+    std::string xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
+                      "<Relationships xmlns=\"http://schemas.openxmlformats.org/package/2006/relationships\">"
+                      "<Relationship Id=\"rId1\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles\" Target=\"styles.xml\"/>"
+                      "<Relationship Id=\"rId2\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings\" Target=\"settings.xml\"/>"
+                      "<Relationship Id=\"rId3\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer\" Target=\"footer1.xml\"/>";
+    for (const auto& entry : images) {
+        const auto& image = entry.second;
+        xml += "<Relationship Id=\"" + image.relationshipId +
+               "\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/image\" "
+               "Target=\"media/" + image.fileName + "\"/>";
+    }
+    xml += "</Relationships>";
+    return xml;
 }
 
 std::string CoreXml(const std::string& title) {
@@ -695,7 +820,9 @@ DocxBuildResult GenerateExamDocx(const std::vector<Question>& questions,
     }
     PaperModel model = PreparePaper(questions, options);
     result.totalPoints = model.totalPoints;
-    std::string document = BuildDocument(options, model);
+    std::unordered_map<std::string, DocxImage> images;
+    PrepareQuestionImages(questions, images);
+    std::string document = BuildDocument(options, model, images);
 
     std::string zip;
     std::string zipError;
@@ -708,8 +835,11 @@ DocxBuildResult GenerateExamDocx(const std::vector<Question>& questions,
         {"word/styles.xml", StylesXml()},
         {"word/settings.xml", SettingsXml()},
         {"word/footer1.xml", FooterXml()},
-        {"word/_rels/document.xml.rels", DocumentRelsXml()},
+        {"word/_rels/document.xml.rels", DocumentRelsXml(images)},
     };
+    for (const auto& entry : images) {
+        files.push_back({"word/media/" + entry.second.fileName, entry.second.bytes});
+    }
     if (!BuildZip(files, zip, &zipError)) {
         result.error = zipError;
         return result;
