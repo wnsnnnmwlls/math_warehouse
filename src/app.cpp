@@ -1854,7 +1854,7 @@ void App::PaintSidebar(ui::Canvas& canvas, float width, float height) {
     canvas.Text(L"打开数据目录  ↗", ui::Rect{23.0f, height - 82.0f, 170.0f, 24.0f}, 11.5f,
                 col::Accent, true);
     AddHit(folderHit, L"open_data");
-    canvas.Text(L"v1.3.1  ·  C++ / Win32", ui::Rect{23.0f, height - 38.0f, 170.0f, 16.0f}, 9.0f,
+    canvas.Text(L"v1.4.0  ·  C++ / Win32", ui::Rect{23.0f, height - 38.0f, 170.0f, 16.0f}, 9.0f,
                 col::Faint, false);
 }
 
@@ -3697,15 +3697,28 @@ void App::GenerateGeometrySketch() {
         ShowToast(L"请先在 AI 接口中配置模型。", true);
         return;
     }
-    std::string prompt = "几何题描述：\n" + util::ToUtf8(description) +
-                         "\n\n请生成一个便于板书画图的平面或立体几何示意图。只输出 JSON：\n"
-                         "{\"kind\":\"plane\",\"title\":\"三角形 ABC\","
-                         "\"points\":[{\"id\":\"A\",\"label\":\"A\",\"x\":0.15,\"y\":0.8}],"
-                         "\"segments\":[{\"a\":\"A\",\"b\":\"B\"}],"
-                         "\"circles\":[{\"x\":0.5,\"y\":0.5,\"r\":0.2}],"
-                         "\"note\":\"关键辅助线说明\"}\n"
-                         "所有 x/y 坐标使用 0 到 1 的归一化坐标，y 向上；点 id 必须与线段引用一致。"
-                         "平面题 kind 用 plane，立体题用 solid。不要输出 Markdown。";
+    std::string prompt =
+        "几何题描述：\n" + util::ToUtf8(description) +
+        "\n\n请生成一个便于板书画图的平面或立体几何示意图。只输出 JSON：\n"
+        "{\"kind\":\"solid\",\"title\":\"三棱锥 P-ABC\","
+        "\"points\":["
+        "{\"id\":\"A\",\"label\":\"A\",\"x\":0.18,\"y\":0.28,\"z\":0.20},"
+        "{\"id\":\"B\",\"label\":\"B\",\"x\":0.78,\"y\":0.28,\"z\":0.20},"
+        "{\"id\":\"C\",\"label\":\"C\",\"x\":0.42,\"y\":0.30,\"z\":0.82},"
+        "{\"id\":\"P\",\"label\":\"P\",\"x\":0.52,\"y\":0.88,\"z\":0.15}],"
+        "\"segments\":["
+        "{\"a\":\"A\",\"b\":\"B\",\"hidden\":false},"
+        "{\"a\":\"B\",\"b\":\"C\",\"hidden\":true},"
+        "{\"a\":\"C\",\"b\":\"A\",\"hidden\":true},"
+        "{\"a\":\"P\",\"b\":\"A\",\"hidden\":false},"
+        "{\"a\":\"P\",\"b\":\"B\",\"hidden\":false},"
+        "{\"a\":\"P\",\"b\":\"C\",\"hidden\":false}],"
+        "\"faces\":[[\"A\",\"B\",\"C\"],[\"P\",\"A\",\"B\"],[\"P\",\"B\",\"C\"],[\"P\",\"C\",\"A\"]],"
+        "\"circles\":[],\"note\":\"关键辅助线说明\"}\n"
+        "所有 x/y/z 坐标使用 0 到 1 的归一化坐标：x 向右，y 向上，z 为深度（0 靠前，1 靠后）。"
+        "立体题必须给每个点 z；被遮挡的棱把 hidden 设为 true；faces 用点 id 数组给出可见或完整的表面，"
+        "用于绘制半透明面和判断前后关系。点 id 必须与线段、faces 引用一致。"
+        "平面题 kind 用 plane，z 可省略；立体题用 solid。不要输出 Markdown。";
     geometryAiRunning_ = true;
     geometryError_.clear();
     geometryAiText_.clear();
@@ -3791,6 +3804,7 @@ void App::HandleToolFinished(WPARAM wParam, LPARAM lParam) {
                             point.label = item["label"].AsString(point.id);
                             point.x = item["x"].AsNumber(0.5);
                             point.y = item["y"].AsNumber(0.5);
+                            point.z = item["z"].AsNumber(0.5);
                             if (!point.id.empty()) spec.points.push_back(std::move(point));
                         }
                     }
@@ -3801,9 +3815,22 @@ void App::HandleToolFinished(WPARAM wParam, LPARAM lParam) {
                             GeometrySegment segment;
                             segment.a = item["a"].AsString();
                             segment.b = item["b"].AsString();
+                            segment.hidden = item["hidden"].AsBool(false);
                             if (!segment.a.empty() && !segment.b.empty()) {
                                 spec.segments.push_back(std::move(segment));
                             }
+                        }
+                    }
+                    const jsonx::Value& faces = root["faces"];
+                    if (faces.IsArray()) {
+                        for (const auto& item : faces.Items()) {
+                            if (!item.IsArray()) continue;
+                            std::vector<std::string> face;
+                            for (const auto& id : item.Items()) {
+                                const std::string value = id.AsString();
+                                if (!value.empty()) face.push_back(value);
+                            }
+                            if (face.size() >= 3) spec.faces.push_back(std::move(face));
                         }
                     }
                     const jsonx::Value& circles = root["circles"];
@@ -3958,37 +3985,136 @@ void App::DrawGeometrySketch(ui::Canvas& canvas, const ui::Rect& rect) {
     }
     if (!geometrySpec_.ok) {
         canvas.TextWrapped(L"输入几何题描述，点击“AI 生成示意图”。\n"
-                           L"AI 会返回归一化点、线段和圆，程序在本地绘制，不依赖外部图片服务。",
+                           L"立体题会返回 x/y/z 坐标、隐藏棱和表面，本地按斜二测投影绘制。",
                            board.Inset(24.0f, 24.0f), 12.0f, col::Faint, false,
                            Gdiplus::StringAlignmentCenter, Gdiplus::StringAlignmentCenter);
         return;
     }
-    auto mapPoint = [&](double x, double y) {
-        return Gdiplus::PointF(board.x + 24.0f + static_cast<float>(x) * (board.w - 48.0f),
-                               board.bottom() - 24.0f - static_cast<float>(y) * (board.h - 48.0f));
+
+    const bool solid = geometrySpec_.kind == "solid";
+    auto project = [&](const GeometryPoint& point) {
+        // A light oblique projection: y is up, z recedes up/right, and the
+        // extra offset separates the back face from the front edges.
+        const double depth = solid ? point.z : 0.0;
+        // In screen coordinates y grows downward. A receding point therefore
+        // moves right and *up*, which keeps the base plane readable instead of
+        // collapsing it onto the front edges.
+        return std::pair<double, double>{point.x + depth * 0.38, point.y + depth * 0.20};
     };
+
+    double minX = 1e100, maxX = -1e100, minY = 1e100, maxY = -1e100;
+    for (const auto& point : geometrySpec_.points) {
+        auto projected = project(point);
+        minX = std::min(minX, projected.first);
+        maxX = std::max(maxX, projected.first);
+        minY = std::min(minY, projected.second);
+        maxY = std::max(maxY, projected.second);
+    }
+    if (!std::isfinite(minX) || !std::isfinite(maxX)) return;
+    const double spanX = std::max(0.001, maxX - minX);
+    const double spanY = std::max(0.001, maxY - minY);
+    const float padding = 48.0f;
+    const float scale = std::min((board.w - padding * 2.0f) / static_cast<float>(spanX),
+                                 (board.h - padding * 2.0f) / static_cast<float>(spanY));
+    const float contentW = static_cast<float>(spanX) * scale;
+    const float contentH = static_cast<float>(spanY) * scale;
+    const float originX = board.x + (board.w - contentW) * 0.5f;
+    const float originY = board.y + (board.h - contentH) * 0.5f;
+    auto mapPoint = [&](const GeometryPoint& point) {
+        auto projected = project(point);
+        return Gdiplus::PointF(
+            originX + static_cast<float>(projected.first - minX) * scale,
+            originY + static_cast<float>(maxY - projected.second) * scale);
+    };
+
+    std::unordered_map<std::string, Gdiplus::PointF> screenPoints;
+    std::unordered_map<std::string, double> depths;
+    for (const auto& point : geometrySpec_.points) {
+        screenPoints[point.id] = mapPoint(point);
+        depths[point.id] = solid ? point.z : 0.0;
+    }
+
+    auto dashedLine = [&](const Gdiplus::PointF& a, const Gdiplus::PointF& b,
+                          const Gdiplus::Color& color, float width) {
+        const float dx = b.X - a.X;
+        const float dy = b.Y - a.Y;
+        const float length = std::sqrt(dx * dx + dy * dy);
+        if (length <= 0.1f) return;
+        const float step = 8.0f;
+        for (float t = 0.0f; t < length; t += step * 2.0f) {
+            const float end = std::min(length, t + step);
+            canvas.Line(a.X + dx * t / length, a.Y + dy * t / length,
+                        a.X + dx * end / length, a.Y + dy * end / length, color, width);
+        }
+    };
+
+    // Faces: back-to-front translucent fills. A face fan is used so 3/4/5-gons
+    // all render with the existing canvas primitives.
+    struct FaceDraw {
+        std::vector<Gdiplus::PointF> points;
+        double depth = 0.0;
+    };
+    std::vector<FaceDraw> faces;
+    for (const auto& face : geometrySpec_.faces) {
+        FaceDraw draw;
+        double totalDepth = 0.0;
+        for (const auto& id : face) {
+            auto it = screenPoints.find(id);
+            if (it == screenPoints.end()) continue;
+            draw.points.push_back(it->second);
+            totalDepth += depths[id];
+        }
+        if (draw.points.size() >= 3) {
+            draw.depth = totalDepth / static_cast<double>(draw.points.size());
+            faces.push_back(std::move(draw));
+        }
+    }
+    std::sort(faces.begin(), faces.end(),
+              [](const FaceDraw& a, const FaceDraw& b) { return a.depth > b.depth; });
+    for (const auto& face : faces) {
+        const BYTE alpha = solid ? static_cast<BYTE>(24 + (1.0 - std::min(1.0, face.depth)) * 22)
+                                 : 20;
+        const Gdiplus::Color fill(alpha, 79, 70, 229);
+        for (size_t i = 1; i + 1 < face.points.size(); ++i) {
+            canvas.Triangle(face.points[0].X, face.points[0].Y, face.points[i].X,
+                            face.points[i].Y, face.points[i + 1].X, face.points[i + 1].Y,
+                            fill);
+        }
+    }
+
+    // Hidden edges are dashed; visible edges are solid and drawn over faces.
+    for (const auto& segment : geometrySpec_.segments) {
+        auto from = screenPoints.find(segment.a);
+        auto to = screenPoints.find(segment.b);
+        if (from == screenPoints.end() || to == screenPoints.end()) continue;
+        if (solid && segment.hidden) {
+            dashedLine(from->second, to->second, Gdiplus::Color(150, 120, 126, 142), 1.45f);
+        } else {
+            canvas.Line(from->second.X, from->second.Y, to->second.X, to->second.Y,
+                        col::InkSoft, solid ? 1.9f : 1.8f);
+        }
+    }
+
     for (const auto& circle : geometrySpec_.circles) {
-        auto center = mapPoint(circle.x, circle.y);
+        auto center = mapPoint(GeometryPoint{"", "", circle.x, circle.y, 0.0});
         float radius = static_cast<float>(circle.r) * std::min(board.w, board.h);
         canvas.CircleOutline(center.X, center.Y, radius, col::Blue, 1.3f);
     }
-    for (const auto& segment : geometrySpec_.segments) {
-        const GeometryPoint* from = nullptr;
-        const GeometryPoint* to = nullptr;
-        for (const auto& point : geometrySpec_.points) {
-            if (point.id == segment.a) from = &point;
-            if (point.id == segment.b) to = &point;
-        }
-        if (!from || !to) continue;
-        auto p1 = mapPoint(from->x, from->y);
-        auto p2 = mapPoint(to->x, to->y);
-        canvas.Line(p1.X, p1.Y, p2.X, p2.Y, col::InkSoft, 1.8f);
-    }
+
     for (const auto& point : geometrySpec_.points) {
-        auto p = mapPoint(point.x, point.y);
-        canvas.Circle(p.X, p.Y, 3.5f, col::Accent);
+        auto p = mapPoint(point);
+        const bool back = solid && point.z > 0.6;
+        canvas.Circle(p.X, p.Y, back ? 3.0f : 3.6f,
+                      back ? Gdiplus::Color(180, 105, 112, 132) : col::Accent);
         canvas.Text(W(point.label.empty() ? point.id : point.label),
-                    ui::Rect{p.X + 6.0f, p.Y - 18.0f, 80.0f, 18.0f}, 10.5f, col::Ink, true);
+                    ui::Rect{p.X + 7.0f, p.Y - 19.0f, 80.0f, 18.0f}, 10.5f, col::Ink, true);
+    }
+
+    if (solid) {
+        canvas.Text(L"斜二测投影 · 虚线为被遮挡棱", ui::Rect{board.x + 12.0f,
+                                                          board.bottom() - 24.0f,
+                                                          board.w - 24.0f, 18.0f},
+                    9.0f, col::Faint, false, Gdiplus::StringAlignmentNear);
     }
     canvas.Text(W(geometrySpec_.title), ui::Rect{rect.x + 20.0f, rect.y + 18.0f,
                                                   rect.w - 40.0f, 24.0f},
@@ -5353,4 +5479,5 @@ void App::PaintToast(ui::Canvas& canvas, float width, float height) {
     canvas.TextEllipsis(message, ui::Rect{toast.x + 32.0f, toast.y, toast.w - 46.0f, toast.h},
                         12.0f, col::ToastText, false);
 }
+
 

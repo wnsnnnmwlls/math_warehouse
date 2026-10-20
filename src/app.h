@@ -56,10 +56,12 @@ private:
         std::string label;
         double x = 0.5;
         double y = 0.5;
+        double z = 0.0;  // 0 = front, 1 = back, used by solid sketches
     };
     struct GeometrySegment {
         std::string a;
         std::string b;
+        bool hidden = false;
     };
     struct GeometryCircle {
         double x = 0.5;
@@ -73,6 +75,7 @@ private:
         std::vector<GeometryPoint> points;
         std::vector<GeometrySegment> segments;
         std::vector<GeometryCircle> circles;
+        std::vector<std::vector<std::string>> faces;
         std::string note;
     };
 
