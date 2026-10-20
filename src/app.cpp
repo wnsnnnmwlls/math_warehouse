@@ -1,4 +1,4 @@
-#include "app.h"
+﻿#include "app.h"
 
 #include "ai.h"
 #include "dedup.h"
@@ -1854,7 +1854,7 @@ void App::PaintSidebar(ui::Canvas& canvas, float width, float height) {
     canvas.Text(L"打开数据目录  ↗", ui::Rect{23.0f, height - 82.0f, 170.0f, 24.0f}, 11.5f,
                 col::Accent, true);
     AddHit(folderHit, L"open_data");
-    canvas.Text(L"v1.3.0  ·  C++ / Win32", ui::Rect{23.0f, height - 38.0f, 170.0f, 16.0f}, 9.0f,
+    canvas.Text(L"v1.3.1  ·  C++ / Win32", ui::Rect{23.0f, height - 38.0f, 170.0f, 16.0f}, 9.0f,
                 col::Faint, false);
 }
 
@@ -3593,7 +3593,8 @@ void App::PaintExamResult(ui::Canvas& canvas, float width, float height) {
 void App::ParseFunction() {
     const std::string normalized = NormalizeFunctionSource(util::ToUtf8(GetControlText(functionEdit_)));
     functionSource_ = W(normalized);
-    SetControlText(functionEdit_, functionSource_);
+    // Do not write back into functionEdit_ here: WM_SETTEXT fires EN_CHANGE,
+    // which calls ParseFunction() again and would recurse until stack overflow.
     std::string error;
     mathexpr::Expression expression;
     if (!expression.Parse(normalized, &error)) {
@@ -5352,3 +5353,4 @@ void App::PaintToast(ui::Canvas& canvas, float width, float height) {
     canvas.TextEllipsis(message, ui::Rect{toast.x + 32.0f, toast.y, toast.w - 46.0f, toast.h},
                         12.0f, col::ToastText, false);
 }
+
