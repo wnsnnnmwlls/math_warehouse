@@ -26,9 +26,9 @@
 
 手机版源码和 31 道题配图已在 `mobile/`，本次 Release 同时附上 APK：
 
-- `MathPaperStudio-Mobile-v0.6.0-arm64.apk`：绝大多数手机
-- `MathPaperStudio-Mobile-v0.6.0-armeabi-v7a.apk`：老 32 位设备
-- `MathPaperStudio-Mobile-v0.6.0-universal.apk`：兼容包
+- `MathPaperStudio-Mobile-v0.6.0-arm64-v1.2.0.apk`：绝大多数手机
+- `MathPaperStudio-Mobile-v0.6.0-armeabi-v7a-v1.2.0.apk`：老 32 位设备
+- `MathPaperStudio-Mobile-v0.6.0-universal-v1.2.0.apk`：兼容包
 
 手机版功能：
 
