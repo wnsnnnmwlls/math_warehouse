@@ -8,6 +8,7 @@ import '../ai/ai_config.dart';
 import '../ai/ai_settings_page.dart';
 import '../data/question_store.dart';
 import '../math/function_graph_page.dart';
+import '../math/geometry_sketch_page.dart';
 import '../models/question.dart';
 import 'manual_paper_page.dart';
 import 'paper_docx.dart';
@@ -63,6 +64,13 @@ class _PaperPageState extends State<PaperPage> {
               MaterialPageRoute(builder: (_) => const FunctionGraphPage()),
             ),
             icon: const Icon(Icons.functions),
+          ),
+          IconButton(
+            tooltip: '几何示意图',
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const GeometrySketchPage()),
+            ),
+            icon: const Icon(Icons.category_outlined),
           ),
         ],
       ),
