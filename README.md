@@ -6,6 +6,12 @@
 
 ![题库界面](docs/screenshot-bank.png)
 
+## 高中数学三年知识树
+
+![高中数学三年知识树](docs/high-school-math-knowledge-tree.png)
+
+按“高一 / 高二 / 高三”三根主枝整理的模块化知识总览，底部附跨模块关联。说明与原图：[docs/high-school-math-knowledge-tree.md](docs/high-school-math-knowledge-tree.md)。
+
 > **v1.1 新增**：年级分类、题目收藏、智能整理/去重、AI 考试、函数图像、几何示意图、Desmos 风格数学键盘，以及 DOCX/TXT 文件识题。
 >
 > **v1.2.1 新增**：桌面端题目配图；4 道图片选项题补入 A–D 选项图；题库搜索支持题目 ID；列表增加“待补全”标记，并生成题目完整性审计。`data/questions.json` 已内置 31 道题的配图。
