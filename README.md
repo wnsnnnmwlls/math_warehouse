@@ -375,9 +375,21 @@ cmake --build build -j 4
 - AI 考试不保存历史记录；解答题只提供参考答案，需自评。
 - 导出的试卷用 Word/WPS 打开后即可打印；程序本身不直接调用打印机。
 
+## 📱 手机版 v0.6.0（2026-10-20）
+
+Android 版已完成首个可安装版本，源码在 [`mobile/`](mobile/)，发布包见：
+
+- [GitHub Release v0.6.0-mobile](https://github.com/wnsnnnmwlls/math_warehouse/releases/tag/v0.6.0-mobile)
+- [移动端说明](mobile/README.md)
+- [题库配图说明](docs/question-figures.md)
+
+当前手机版包含：235 题题库、搜索筛选、收藏、JSON 导入、AI 供应商配置、AI/自动/手动组卷、Word 试卷导出、已导出标记、最近做过篮子，以及 31 道几何/统计题的配图。
+
+题库配图同时放入了仓库根目录的 `data/figures/` 和 `data/figure_map.json`，桌面版后续可复用；当前桌面版尚未读取这些配图。
+
 ## 手机端迁移评估
 
-当前项目仍是 Windows 桌面程序。若要发布 Android/iOS 版本，建议先阅读：
+桌面版仍使用 C++/Win32；手机版已经用 Flutter 重写并发布。若要继续做 iOS 或评估后续移动端路线，可阅读：
 
 - [移动端迁移技术评估](docs/mobile-migration.md)
 
