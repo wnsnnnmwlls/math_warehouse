@@ -263,7 +263,7 @@ bool QuestionFilter::Matches(const Question& question) const {
     }
     std::string query = util::Trim(search);
     if (!query.empty()) {
-        std::string haystack = question.stem + "\n" + question.answer + "\n" + question.analysis;
+        std::string haystack = question.id + "\n" + question.stem + "\n" + question.answer + "\n" + question.analysis;
         for (const auto& option : question.options) haystack += "\n" + option;
         for (const auto& tag : question.formulas) haystack += "\n" + tag;
         for (const auto& tag : question.concepts) haystack += "\n" + tag;
@@ -466,4 +466,25 @@ bool QuestionNeedsFigure(const Question& question) {
            text.find("下图") != std::string::npos ||
            text.find("图中") != std::string::npos ||
            text.find("图示") != std::string::npos;
+}
+
+bool QuestionNeedsCompletion(const Question& question) {
+    if (util::Trim(question.answer).empty() || util::Trim(question.analysis).empty()) {
+        return true;
+    }
+    if (QuestionNeedsFigure(question)) return true;
+    if (question.type != QuestionType::Choice) return false;
+    int nonEmptyOptions = 0;
+    for (const auto& option : question.options) {
+        if (!util::Trim(option).empty()) ++nonEmptyOptions;
+    }
+    if (nonEmptyOptions < 2) return true;
+    const bool multiPart = question.stem.find("(1)") != std::string::npos ||
+                           question.stem.find("（1）") != std::string::npos;
+    if (multiPart) return false;
+    if (nonEmptyOptions < 4) return true;
+    std::string answer = util::Trim(question.answer);
+    if (answer.empty()) return true;
+    char first = static_cast<char>(std::toupper(static_cast<unsigned char>(answer[0])));
+    return first < 'A' || first > 'D';
 }

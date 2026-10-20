@@ -2,7 +2,7 @@
   "source": "数学精选题.docx",
   "note": "Question IDs map to figures extracted from the source DOCX; paths are relative to the repository root.",
   "figures": {
-    "q_6906f063601c": "figures/fig_32_parabola.png",
+    "q_6906f063601c": "figures/fig_q_6906_options.png",
     "q_e08085686474": "figures/fig_86_histogram.png",
     "q_75ff0bc3822a": "figures/fig_88_histogram.png",
     "q_d25c8a14c8a2": "figures/fig_93_histogram.png",
@@ -32,6 +32,9 @@
     "q_46c2015f4006": "figures/fig_188_cube.png",
     "q_cc8d8214dc04": "figures/fig_189_pyramid.png",
     "q_52770d7ad875": "figures/fig_190_pyramid.png",
-    "q_d83e8daf558c": "figures/fig_190_pyramid.png"
+    "q_d83e8daf558c": "figures/fig_190_pyramid.png",
+    "q_eec071b51c7d": "figures/fig_q_eec_options.png",
+    "q_febac82a8d17": "figures/fig_q_febac_options.png",
+    "q_bbad4b8249d8": "figures/fig_q_bbad_options.png"
   }
 }

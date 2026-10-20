@@ -1,0 +1,86 @@
+{
+  "generated": "2026-10-20",
+  "total": 235,
+  "incomplete_count": 7,
+  "fixed": {
+    "q_6906f063601c": "已补配图+选项图",
+    "q_eec071b51c7d": "已补选项图",
+    "q_febac82a8d17": "已补选项图，答案仍为文字",
+    "q_bbad4b8249d8": "已补选项图，答案仍为文字"
+  },
+  "items": [
+    {
+      "id": "q_dc54f6c11778",
+      "priority": "高",
+      "type": "choice",
+      "stem": "已知函数 f(x)={ x², x≤0; f(x-1), x>0 }，则 f(1)=（ ）",
+      "options_count": 0,
+      "issues": [
+        "选项只有 0 项",
+        "答案不是 A-D 选项字母"
+      ]
+    },
+    {
+      "id": "q_dd986daa2278",
+      "priority": "高",
+      "type": "choice",
+      "stem": "为了了解全校 200 名学生的年龄情况，从中抽取 40 名学生进行调查，下列说法正确的是",
+      "options_count": 0,
+      "issues": [
+        "选项只有 0 项",
+        "答案不是 A-D 选项字母"
+      ]
+    },
+    {
+      "id": "q_dacdc1486a72",
+      "priority": "高",
+      "type": "choice",
+      "stem": "函数 f(x)=2·cos(1/2x-π/4) 的单调递减区间为（ ）",
+      "options_count": 0,
+      "issues": [
+        "选项只有 0 项",
+        "答案不是 A-D 选项字母"
+      ]
+    },
+    {
+      "id": "q_febac82a8d17",
+      "priority": "中",
+      "type": "choice",
+      "stem": "函数 y=3^|x| 的大致图象是（　　）",
+      "options_count": 4,
+      "issues": [
+        "答案不是 A-D 选项字母"
+      ]
+    },
+    {
+      "id": "q_bbad4b8249d8",
+      "priority": "中",
+      "type": "choice",
+      "stem": "为了得到函数 y=cos 2x 的图像，只需把余弦曲线 y=cos x 上所有的点（　　）",
+      "options_count": 4,
+      "issues": [
+        "答案不是 A-D 选项字母"
+      ]
+    },
+    {
+      "id": "q_7320d153bba1",
+      "priority": "中",
+      "type": "choice",
+      "stem": "化简：AB-AC+BC=（  ）",
+      "options_count": 3,
+      "issues": [
+        "选项只有 3 项"
+      ]
+    },
+    {
+      "id": "q_71b7e4c25cb9",
+      "priority": "低",
+      "type": "choice",
+      "stem": "(1) 函数 y=3x-2 的零点是（ ）\n(2) 函数 f(x)={ x²+8, x≤0; log₂x+x-3, x>0 } 的零点个数为（ ）\n(3) 函数 f(x)=log₂|x|-1 的零点为（ ）",
+      "options_count": 3,
+      "issues": [
+        "多小问合并；D 选项为空，可能不影响"
+      ]
+    }
+  ]
+}

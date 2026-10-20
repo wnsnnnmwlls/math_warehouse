@@ -1808,7 +1808,7 @@ void App::PaintSidebar(ui::Canvas& canvas, float width, float height) {
     canvas.Text(L"打开数据目录  ↗", ui::Rect{23.0f, height - 82.0f, 170.0f, 24.0f}, 11.5f,
                 col::Accent, true);
     AddHit(folderHit, L"open_data");
-    canvas.Text(L"v1.2  ·  C++ / Win32", ui::Rect{23.0f, height - 38.0f, 170.0f, 16.0f}, 9.0f,
+    canvas.Text(L"v1.2.1  ·  C++ / Win32", ui::Rect{23.0f, height - 38.0f, 170.0f, 16.0f}, 9.0f,
                 col::Faint, false);
 }
 
@@ -2498,6 +2498,14 @@ void App::DrawQuestionRow(ui::Canvas& canvas, const Question& question, const ui
         float width = canvas.Measure(figure, 10.0f, true, false).Width + 18.0f;
         canvas.FillRect(ui::Rect{topX, rect.y + 14.0f, width, 22.0f}, col::RedSoft, 11.0f);
         canvas.Text(figure, ui::Rect{topX, rect.y + 14.0f, width, 22.0f}, 10.0f, col::Red,
+                    true, Gdiplus::StringAlignmentCenter);
+    }
+    if (QuestionNeedsCompletion(question)) {
+        topX += 6.0f;
+        const std::wstring todo = L"待补全";
+        float width = canvas.Measure(todo, 10.0f, true, false).Width + 18.0f;
+        canvas.FillRect(ui::Rect{topX, rect.y + 14.0f, width, 22.0f}, col::RedSoft, 11.0f);
+        canvas.Text(todo, ui::Rect{topX, rect.y + 14.0f, width, 22.0f}, 10.0f, col::Red,
                     true, Gdiplus::StringAlignmentCenter);
     }
 

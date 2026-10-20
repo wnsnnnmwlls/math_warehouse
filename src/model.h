@@ -86,6 +86,7 @@ Grade InferGrade(const Question& question);
 int PointsForType(QuestionType type);
 bool QuestionHasImage(const Question& question);
 bool QuestionNeedsFigure(const Question& question);
+bool QuestionNeedsCompletion(const Question& question);
 
 std::string TagKey(const std::string& tag);
 bool TagsEqual(const std::string& a, const std::string& b);
