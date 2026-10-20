@@ -18,9 +18,9 @@
 
 ## 下载
 
-- `数研组卷_Mobile_v0.6.0_arm64.apk`：绝大多数手机
-- `数研组卷_Mobile_v0.6.0_armeabi-v7a.apk`：老 32 位设备
-- `数研组卷_Mobile_v0.6.0_universal.apk`：不确定架构/兼容包
+- `MathPaperStudio-Mobile-v0.6.0-arm64.apk`：绝大多数手机
+- `MathPaperStudio-Mobile-v0.6.0-armeabi-v7a.apk`：老 32 位设备
+- `MathPaperStudio-Mobile-v0.6.0-universal.apk`：不确定架构/兼容包
 
 直接覆盖安装旧版即可，题库、配图、收藏和最近做过记录会保留。
 
