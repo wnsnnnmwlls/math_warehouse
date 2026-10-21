@@ -1,5 +1,6 @@
 #include "store.h"
 
+#include "bundled_questions.h"
 #include "seed.h"
 #include "util.h"
 
@@ -167,10 +168,55 @@ bool Store::EnsureDataDirectory(std::string* error) {
     return true;
 }
 
+namespace {
+
+bool ParseQuestionsFromText(const std::string& text, std::vector<Question>* loaded) {
+    jsonx::Value root = jsonx::Value::Parse(text);
+    const jsonx::Value* list = nullptr;
+    if (root.IsObject()) list = root.Find("questions");
+    if (!list || !list->IsArray()) return false;
+    loaded->clear();
+    std::set<std::string> ids;
+    loaded->reserve(list->size());
+    for (const auto& item : list->Items()) {
+        Question question = Question::FromJson(item);
+        if (util::Trim(question.stem).empty()) continue;
+        while (question.id.empty() || ids.count(question.id)) {
+            question.id = util::NewId("q");
+        }
+        ids.insert(question.id);
+        loaded->push_back(std::move(question));
+    }
+    return !loaded->empty();
+}
+
+std::vector<Question> LoadBundledQuestions() {
+    std::vector<Question> loaded;
+    const std::string text = LoadBundledQuestionsJson();
+    if (!text.empty()) ParseQuestionsFromText(text, &loaded);
+    return loaded;
+}
+
+bool IsOldSeedBank(const std::vector<Question>& questions) {
+    if (questions.empty() || questions.size() > 24) return false;
+    return std::all_of(questions.begin(), questions.end(), [](const Question& question) {
+        return question.id.rfind("seed", 0) == 0;
+    });
+}
+
+}  // namespace
+
 bool Store::LoadQuestions(std::string* warning) {
     const std::filesystem::path path = QuestionsPath();
     if (!util::FileExists(path)) {
-        questions_ = BuildSeedQuestions();
+        // A portable single-file exe has no sibling data directory. Use the
+        // complete bank embedded in the executable instead of the 24 demos.
+        std::vector<Question> bundled = LoadBundledQuestions();
+        if (!bundled.empty()) {
+            questions_ = std::move(bundled);
+        } else {
+            questions_ = BuildSeedQuestions();
+        }
         std::string saveError;
         if (!SaveQuestions(&saveError)) AppendWarning(warning, saveError);
         return true;
@@ -178,46 +224,34 @@ bool Store::LoadQuestions(std::string* warning) {
     std::string text;
     std::string error;
     if (!util::ReadFileBytes(path, text, &error)) {
-        AppendWarning(warning, error + "，已载入示例题库。");
-        questions_ = BuildSeedQuestions();
-        return true;
-    }
-    std::string parseError;
-    jsonx::Value root = jsonx::Value::Parse(text, &parseError);
-    const jsonx::Value* list = nullptr;
-    if (root.IsObject()) {
-        list = root.Find("questions");
-    }
-    if (!list || !list->IsArray()) {
-        BackupCorruptFile(path);
-        AppendWarning(warning, "题库文件格式无效，已备份原文件并载入示例题库。" +
-                                   (parseError.empty() ? "" : " " + parseError));
-        questions_ = BuildSeedQuestions();
-        std::string saveError;
-        if (!SaveQuestions(&saveError)) AppendWarning(warning, saveError);
+        AppendWarning(warning, error + "，已载入内置题库。");
+        questions_ = LoadBundledQuestions();
+        if (questions_.empty()) questions_ = BuildSeedQuestions();
         return true;
     }
     std::vector<Question> loaded;
-    std::set<std::string> ids;
-    loaded.reserve(list->size());
-    for (const auto& item : list->Items()) {
-        Question question = Question::FromJson(item);
-        if (util::Trim(question.stem).empty()) {
-            continue;
-        }
-        while (question.id.empty() || ids.count(question.id)) {
-            question.id = util::NewId("q");
-        }
-        ids.insert(question.id);
-        loaded.push_back(std::move(question));
-    }
-    if (loaded.empty()) {
+    if (!ParseQuestionsFromText(text, &loaded)) {
         BackupCorruptFile(path);
-        AppendWarning(warning, "题库为空或没有有效题目，已载入示例题库。");
-        questions_ = BuildSeedQuestions();
+        loaded = LoadBundledQuestions();
+        if (loaded.empty()) loaded = BuildSeedQuestions();
+        questions_ = std::move(loaded);
+        AppendWarning(warning, "题库文件格式无效，已备份原文件并载入内置题库。");
         std::string saveError;
         if (!SaveQuestions(&saveError)) AppendWarning(warning, saveError);
         return true;
+    }
+    // v1.4.2 and earlier portable exes created a 24-question demo file when
+    // launched without data. Upgrade that untouched seed file on first start.
+    if (IsOldSeedBank(loaded)) {
+        std::vector<Question> bundled = LoadBundledQuestions();
+        if (bundled.size() > loaded.size()) {
+            loaded = std::move(bundled);
+            questions_ = std::move(loaded);
+            std::string saveError;
+            if (!SaveQuestions(&saveError)) AppendWarning(warning, saveError);
+            AppendWarning(warning, "检测到旧版示例题库，已升级为内置完整题库。");
+            return true;
+        }
     }
     questions_ = std::move(loaded);
     return true;
