@@ -1895,7 +1895,7 @@ void App::PaintSidebar(ui::Canvas& canvas, float width, float height) {
     canvas.Text(L"打开数据目录  ↗", ui::Rect{23.0f, height - 82.0f, 170.0f, 24.0f}, 11.5f,
                 col::Accent, true);
     AddHit(folderHit, L"open_data");
-    canvas.Text(L"v1.4.2  ·  C++ / Win32", ui::Rect{23.0f, height - 38.0f, 170.0f, 16.0f}, 9.0f,
+    canvas.Text(L"v1.4.3  ·  C++ / Win32", ui::Rect{23.0f, height - 38.0f, 170.0f, 16.0f}, 9.0f,
                 col::Faint, false);
 }
 
@@ -5529,6 +5529,7 @@ void App::PaintToast(ui::Canvas& canvas, float width, float height) {
     canvas.TextEllipsis(message, ui::Rect{toast.x + 32.0f, toast.y, toast.w - 46.0f, toast.h},
                         12.0f, col::ToastText, false);
 }
+
 
 
 
