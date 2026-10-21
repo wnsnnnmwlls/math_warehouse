@@ -15,6 +15,7 @@ set(CORE_SOURCES
     src/json.cpp
     src/model.cpp
     src/seed.cpp
+    src/bundled_questions.cpp
     src/store.cpp
     src/ai.cpp
     src/docx.cpp
@@ -24,6 +25,13 @@ set(CORE_SOURCES
     src/text_file.cpp
     src/dedup.cpp
 )
+
+# Embed the complete question bank so the single-file exe is not limited to
+# the 24 built-in demo questions when no data directory exists.
+set(BUNDLED_QUESTIONS_RC "${CMAKE_BINARY_DIR}/bundled_questions.rc")
+file(TO_CMAKE_PATH "${CMAKE_SOURCE_DIR}/data/questions.json" BUNDLED_QUESTIONS_JSON)
+file(WRITE "${BUNDLED_QUESTIONS_RC}"
+    "#include <windows.h>\n202 RCDATA \"${BUNDLED_QUESTIONS_JSON}\"\n")
 
 add_executable(MathPaperStudio WIN32
     src/main.cpp
@@ -42,6 +50,7 @@ add_executable(MathPaperStudio WIN32
     res/app.rc
     res/app.manifest
     res/app.ico
+    "${BUNDLED_QUESTIONS_RC}"
 )
 
 target_include_directories(MathPaperStudio PRIVATE src)
